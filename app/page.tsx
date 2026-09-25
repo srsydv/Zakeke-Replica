@@ -5,8 +5,8 @@ import { ProductCard } from "@/components/ProductCard";
 import { featuredProducts, SHOP_CATEGORIES } from "@/lib/catalog";
 import { fromPriceForProduct } from "@/lib/quote";
 
-export default function HomePage() {
-  const featured = featuredProducts(8);
+export default async function HomePage() {
+  const featured = await featuredProducts(8);
   return (
     <>
       <section className="hero">

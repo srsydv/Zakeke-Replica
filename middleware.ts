@@ -6,23 +6,8 @@ export function middleware(req: NextRequest) {
   const session = parseSessionValue(req.cookies.get(SESSION_COOKIE)?.value);
   const { pathname } = req.nextUrl;
 
-  if (pathname.startsWith("/admin") || pathname.startsWith("/api/orders")) {
-    if (pathname === "/api/orders/dummy") {
-      if (session?.role !== "user") {
-        return NextResponse.json({ error: "Log in as the user to place a dummy order." }, { status: 401 });
-      }
-      return NextResponse.next();
-    }
-    if (pathname === "/api/orders" && req.method === "POST") {
-      if (session?.role !== "user") {
-        return NextResponse.json({ error: "Log in as the user to place an order." }, { status: 401 });
-      }
-      return NextResponse.next();
-    }
+  if (pathname.startsWith("/admin")) {
     if (session?.role !== "admin") {
-      if (pathname.startsWith("/api/")) {
-        return NextResponse.json({ error: "Admin login required." }, { status: 401 });
-      }
       const url = req.nextUrl.clone();
       url.pathname = "/login";
       url.searchParams.set("next", pathname);
@@ -48,5 +33,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/designer", "/cart", "/checkout", "/api/orders", "/api/orders/:path*"],
+  matcher: ["/admin/:path*", "/designer", "/cart", "/checkout"],
 };

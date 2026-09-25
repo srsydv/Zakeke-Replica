@@ -4,7 +4,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { listProducts, SHOP_CATEGORIES } from "@/lib/catalog";
 import { fromPriceForProduct } from "@/lib/quote";
 
-export function ShopView({
+export async function ShopView({
   title,
   subtitle,
   shop,
@@ -29,7 +29,7 @@ export function ShopView({
 }) {
   const pageSize = 24;
   const safePage = Number.isFinite(page) && page > 0 ? page : 1;
-  const { items, total } = listProducts({
+  const { items, total } = await listProducts({
     shop,
     q,
     limit: pageSize,

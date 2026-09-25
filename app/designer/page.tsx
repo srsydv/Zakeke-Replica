@@ -8,7 +8,7 @@ export default async function DesignerPage({
   searchParams: Promise<{ productId?: string; color?: string; design?: string }>;
 }) {
   const { productId, color, design } = await searchParams;
-  const product = getProduct(productId ?? "100");
+  const product = await getProduct(productId ?? "100");
   if (!product) notFound();
   return <DesignerStudio product={product} initialColor={color} designId={design} />;
 }

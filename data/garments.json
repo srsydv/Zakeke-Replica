@@ -768,6 +768,110 @@
         }
       ],
       "garmentWidthMm": 406.4
+    },
+    {
+      "id": 306,
+      "name": "B&C #E150",
+      "styleCode": "BA210",
+      "source": "admin",
+      "templateVersion": 5,
+      "updatedAt": "2026-09-25T08:49:43.825Z",
+      "garmentWidthMm": 457.2,
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/45428d12/5c5c3e3deb9f5b1c75cdffb5af8fbab9.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/45428d12/5c5c3e3deb9f5b1c75cdffb5af8fbab9.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 338.3461538461538,
+              "y": 309,
+              "w": 138.80208179505146,
+              "h": 138.80208179505146
+            },
+            {
+              "x": 713.1963125642823,
+              "y": 309,
+              "w": 138.80208179505146,
+              "h": 138.80208179505146,
+              "label": "Box 2"
+            }
+          ],
+          "crop": [
+            43,
+            135,
+            1158,
+            1338
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 35.25572877594307,
+          "imageWidth": 1200,
+          "imageHeight": 1440,
+          "measureLine": {
+            "x1": 286.1899038461538,
+            "y1": 524.5582932692308,
+            "x2": 920.7872596153846,
+            "y2": 521.8539663461539
+          }
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/45428d12/5c5c3e3deb9f5b1c75cdffb5af8fbab9.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/45428d12/5c5c3e3deb9f5b1c75cdffb5af8fbab9.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 332,
+              "y": 309,
+              "w": 540,
+              "h": 664
+            }
+          ],
+          "crop": [
+            43,
+            135,
+            1158,
+            1338
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 61.94444444444444,
+          "imageWidth": 1200,
+          "imageHeight": 1440,
+          "measureLine": {
+            "x1": 43,
+            "y1": 592.14,
+            "x2": 1158,
+            "y2": 592.14
+          }
+        }
+      ]
     }
   ]
 }

@@ -54,7 +54,8 @@ All of that lives in **PostgreSQL** (products, colours, print boxes, orders, sav
 | What | Why | Study |
 | --- | --- | --- |
 | Python (standard library: `csv`, `zipfile`) | One-off import of the Ralawise zip | [Python docs](https://docs.python.org/3/) |
-| [PostgreSQL](https://www.postgresql.org/docs/) | Product catalogue, print boxes, orders, designs | [Postgres docs](https://www.postgresql.org/docs/) · [npm: pg](https://www.npmjs.com/package/pg) |
+| [PostgreSQL](https://www.postgresql.org/docs/) | Local database (same role as the old SQLite file) | [Postgres docs](https://www.postgresql.org/docs/) |
+| [Drizzle](https://orm.drizzle.team/docs/overview) | Talk to Postgres from Node | [npm: drizzle-orm](https://www.npmjs.com/package/drizzle-orm) · [drizzle-kit](https://orm.drizzle.team/docs/kit-overview) |
 
 ### Step B — Admin places the print boxes
 
@@ -86,7 +87,8 @@ Live price uses our existing quote rules (quantity, decoration, rush). That is o
 
 | What | Why | Study |
 | --- | --- | --- |
-| [Next.js](https://nextjs.org/docs) | The website: shop, designer, admin, APIs | [npm: next](https://www.npmjs.com/package/next) |
+| [Next.js](https://nextjs.org/docs) | The website: shop, designer, admin | [npm: next](https://www.npmjs.com/package/next) |
+| [Express](https://expressjs.com/) on [Node.js](https://nodejs.org/docs/latest/api/) | The backend API (login, products, boxes, orders) | [npm: express](https://www.npmjs.com/package/express) · [Express guide](https://expressjs.com/en/starter/hello-world.html) |
 | [React](https://react.dev/learn) | Screens and buttons | [npm: react](https://www.npmjs.com/package/react) |
 | [PixiJS](https://pixijs.com/8.x/guides/getting-started/intro) | Smooth garment stage (photo + boxes) | [npm: pixi.js](https://www.npmjs.com/package/pixi.js) |
 | [TypeScript](https://www.typescriptlang.org/docs/) | Safer JavaScript | [npm: typescript](https://www.npmjs.com/package/typescript) |
@@ -94,6 +96,8 @@ Live price uses our existing quote rules (quantity, decoration, rush). That is o
 | Browser Canvas | Drag, resize, and compose images | [MDN Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) |
 
 PixiJS is the same family of tool game and design UIs use. It is not an AI model. It draws the shirt and the boxes quickly.
+
+The site (Next.js) and the API (Express on Node.js) are two processes. The browser still calls `/api/...`; Next forwards those to Express.
 
 ### Step D — Two files, not one
 
@@ -217,13 +221,15 @@ These are the libraries this approach actually uses. Nothing exotic.
 
 | Package | Role in one sentence | Link |
 | --- | --- | --- |
-| **next** | The app framework (pages + APIs) | [npm](https://www.npmjs.com/package/next) · [docs](https://nextjs.org/docs) |
+| **next** | The website (shop, designer, admin) | [npm](https://www.npmjs.com/package/next) · [docs](https://nextjs.org/docs) |
+| **express** | Node.js API server | [npm](https://www.npmjs.com/package/express) · [docs](https://expressjs.com/) |
 | **react** / **react-dom** | UI | [npm](https://www.npmjs.com/package/react) · [docs](https://react.dev/learn) |
 | **pixi.js** | Fast 2D stage for the garment | [npm](https://www.npmjs.com/package/pixi.js) · [guides](https://pixijs.com/8.x/guides/getting-started/intro) |
 | **sharp** | Server image work (resize, PNG) | [npm](https://www.npmjs.com/package/sharp) · [docs](https://sharp.pixelplumbing.com/) |
 | **typescript** | Typed JavaScript | [npm](https://www.npmjs.com/package/typescript) · [docs](https://www.typescriptlang.org/docs/) |
 | **tailwindcss** | Styling | [npm](https://www.npmjs.com/package/tailwindcss) · [docs](https://tailwindcss.com/docs) |
-| **pg** | Talk to PostgreSQL from Node | [npm](https://www.npmjs.com/package/pg) · [docs](https://node-postgres.com/) |
+| **drizzle-orm** | Query Postgres from Node | [npm](https://www.npmjs.com/package/drizzle-orm) · [docs](https://orm.drizzle.team/docs/overview) |
+| **postgres** | Postgres driver used by Drizzle | [npm](https://www.npmjs.com/package/postgres) |
 
 **Built in (no extra vendor)**
 

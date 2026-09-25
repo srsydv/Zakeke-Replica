@@ -2,8 +2,8 @@ import Link from "next/link";
 import { listOrders } from "@/lib/orders";
 import { formatPricingGbp } from "@/lib/quote";
 
-export default function AdminOrdersPage() {
-  const orders = listOrders();
+export default async function AdminOrdersPage() {
+  const orders = await listOrders();
   return (
     <div className="admin-page">
       <div className="admin-head">
@@ -12,7 +12,7 @@ export default function AdminOrdersPage() {
           <h1>Admin — incoming jobs</h1>
           <p className="muted">
             Each job stores print area, artwork inches, and pixel placement in
-            catalog.db tables <code>orders</code> and <code>order_placements</code>.
+            Postgres tables <code>orders</code> and <code>order_placements</code>.
             The press uses those numbers and the artwork file, not the shirt photo.
           </p>
         </div>

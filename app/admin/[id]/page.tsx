@@ -15,8 +15,12 @@ export default async function AdminOrderPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const order = getOrder(id);
+  const order = await getOrder(id);
   if (!order) notFound();
+  const garments = await Promise.all(
+    order.items.map(async (item) => [item.id, await getStoredGarment(item.productId)] as const),
+  );
+  const garmentByItem = new Map(garments);
   const quote = order.items[0]?.quote as
     | {
         unitIncVat?: number;
@@ -47,7 +51,7 @@ export default async function AdminOrderPage({
       </div>
 
       {order.items.map((item) => {
-        const garment = getStoredGarment(item.productId);
+        const garment = garmentByItem.get(item.id);
         const mockupSide = item.objects[0]?.side ?? "front";
         const sideTemplate =
           findSide(garment, mockupSide) ??
@@ -108,7 +112,7 @@ export default async function AdminOrderPage({
             <h2>Job ticket — where to print</h2>
             <p className="tiny">
               {item.styleCode ? `Style ${item.styleCode} · ` : ""}
-              {item.brand} · {item.color} · catalog.db tables: orders, order_items, order_placements, view order_details
+              {item.brand} · {item.color} · Postgres tables: orders, order_items, order_placements
             </p>
             {item.printJobs.length === 0 ? (
               <p className="muted">No artwork on this garment.</p>

@@ -35,7 +35,7 @@ export default async function AdminGarmentsPage({
         </div>
         <GarmentTemplateForm
           garment={garment}
-          defaultGarmentWidthMm={printSpecFor(getProduct(garment.id) ?? { silhouette: "tee" }).garmentWidthIn * 25.4}
+          defaultGarmentWidthMm={printSpecFor((await getProduct(garment.id)) ?? { silhouette: "tee" }).garmentWidthIn * 25.4}
         />
       </div>
     );
