@@ -1,0 +1,773 @@
+{
+  "garments": [
+    {
+      "id": 182,
+      "name": "Acid washed heavy oversized tee",
+      "styleCode": "BY189",
+      "source": "admin",
+      "templateVersion": 5,
+      "updatedAt": "2026-09-24T05:20:04.641Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 344.44613759690634,
+              "y": 240.3383413461537,
+              "w": 130.02802105693985,
+              "h": 149.93247685933332
+            }
+          ],
+          "crop": [
+            43,
+            28,
+            1158,
+            1438
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 9.995498457288887,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 299,
+              "y": 232,
+              "w": 601,
+              "h": 739
+            }
+          ],
+          "crop": [
+            43,
+            28,
+            1158,
+            1438
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 46.2,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        }
+      ]
+    },
+    {
+      "id": 232,
+      "name": "Anthem heavyweight t-shirt",
+      "styleCode": "AM015",
+      "source": "generated",
+      "updatedAt": "2026-09-23T10:22:15.656Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/5b96417b/61a7ccb7fe9cd944a0000019/AM015_Black_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/5b96417b/61a7ccb7fe9cd944a0000019/AM015_Black_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 301,
+              "y": 203,
+              "w": 598,
+              "h": 690
+            }
+          ],
+          "crop": [
+            0,
+            0,
+            1200,
+            1440
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 46,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/5b96417b/61a7ccb7fe9cd944a0000019/AM015_Black_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/5b96417b/61a7ccb7fe9cd944a0000019/AM015_Black_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 301,
+              "y": 203,
+              "w": 598,
+              "h": 736
+            }
+          ],
+          "crop": [
+            0,
+            0,
+            1200,
+            1440
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 46,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        }
+      ]
+    },
+    {
+      "id": 3087,
+      "name": "The Asquith & Fox polo",
+      "styleCode": "AQ010",
+      "source": "generated",
+      "updatedAt": "2026-09-24T02:23:17.622Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c6199845/5cc054c3ace8be659900007c186944a1.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c6199845/5cc054c3ace8be659900007c186944a1.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 301,
+              "y": 203,
+              "w": 598,
+              "h": 690
+            }
+          ],
+          "crop": [
+            0,
+            0,
+            1200,
+            1440
+          ],
+          "embroidery": [
+            {
+              "x1": 347,
+              "y1": 233,
+              "x2": 516,
+              "y2": 422
+            },
+            {
+              "x1": 684,
+              "y1": 233,
+              "x2": 853,
+              "y2": 422
+            }
+          ],
+          "pixelsPerInch": 46,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c6199845/5cc054c3ace8be659900007c186944a1.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c6199845/5cc054c3ace8be659900007c186944a1.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 301,
+              "y": 203,
+              "w": 598,
+              "h": 736
+            }
+          ],
+          "crop": [
+            0,
+            0,
+            1200,
+            1440
+          ],
+          "embroidery": [
+            {
+              "x1": 347,
+              "y1": 233,
+              "x2": 516,
+              "y2": 422
+            },
+            {
+              "x1": 684,
+              "y1": 233,
+              "x2": 853,
+              "y2": 422
+            }
+          ],
+          "pixelsPerInch": 46,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        }
+      ]
+    },
+    {
+      "id": 3263,
+      "name": "Ultra-heavy sweatshorts",
+      "styleCode": "BY251",
+      "source": "generated",
+      "templateVersion": 3,
+      "updatedAt": "2026-09-24T03:01:40.551Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/7bcd6675/6564b081d9e4aa4eae00001b/BY251_Black_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/7bcd6675/6564b081d9e4aa4eae00001b/BY251_Black_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 102,
+              "y": 274,
+              "w": 1017,
+              "h": 469
+            }
+          ],
+          "crop": [
+            45,
+            23,
+            1175,
+            1418
+          ],
+          "embroidery": [],
+          "pixelsPerInch": 78.2,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/7bcd6675/6564b081d9e4aa4eae00001b/BY251_Black_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/7bcd6675/6564b081d9e4aa4eae00001b/BY251_Black_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 102,
+              "y": 274,
+              "w": 1017,
+              "h": 469
+            }
+          ],
+          "crop": [
+            45,
+            23,
+            1175,
+            1418
+          ],
+          "embroidery": [],
+          "pixelsPerInch": 78.2,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        }
+      ]
+    },
+    {
+      "id": 1936,
+      "name": "Men's TriDri® jogger shorts",
+      "styleCode": "TR058",
+      "source": "generated",
+      "templateVersion": 2,
+      "updatedAt": "2026-09-24T02:59:57.379Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/070cc600/61083af23f66334e4a000015/38b760f5/TR058_Black_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/070cc600/61083af23f66334e4a000015/38b760f5/TR058_Black_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 153,
+              "y": 140,
+              "w": 896,
+              "h": 413
+            }
+          ],
+          "crop": [
+            103,
+            30,
+            1098,
+            1405
+          ],
+          "embroidery": [],
+          "pixelsPerInch": 68.9,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/070cc600/61083af23f66334e4a000015/38b760f5/TR058_Black_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/070cc600/61083af23f66334e4a000015/38b760f5/TR058_Black_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 153,
+              "y": 140,
+              "w": 896,
+              "h": 413
+            }
+          ],
+          "crop": [
+            103,
+            30,
+            1098,
+            1405
+          ],
+          "embroidery": [],
+          "pixelsPerInch": 68.9,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        }
+      ]
+    },
+    {
+      "id": 205,
+      "name": "Adults team shorts no pockets",
+      "styleCode": "LV296",
+      "source": "admin",
+      "templateVersion": 5,
+      "updatedAt": "2026-09-24T05:08:39.126Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/7c575086/692833529eee9a2c4100003a/e94fe61f/LV296_Black_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/7c575086/692833529eee9a2c4100003a/e94fe61f/LV296_Black_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 143.38738568869613,
+              "y": 616.1802884615383,
+              "w": 139.40228151220893,
+              "h": 64.28201721206419
+            }
+          ],
+          "crop": [
+            198,
+            130,
+            1008,
+            1308
+          ],
+          "embroidery": [],
+          "pixelsPerInch": 10.726127290617683,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/7c575086/692833529eee9a2c4100003a/e94fe61f/LV296_Black_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/7c575086/692833529eee9a2c4100003a/e94fe61f/LV296_Black_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 133.98793249740734,
+              "y": 723.1814903846152,
+              "w": 128.46610728764023,
+              "h": 59.23906287794669
+            }
+          ],
+          "crop": [
+            198,
+            130,
+            1008,
+            1308
+          ],
+          "embroidery": [],
+          "pixelsPerInch": 9.884657584866687,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        }
+      ]
+    },
+    {
+      "id": 298,
+      "name": "AWDis 180 long sleeve T",
+      "styleCode": "AT012",
+      "source": "generated",
+      "templateVersion": 5,
+      "updatedAt": "2026-09-24T03:37:09.523Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000061/AT012_ArcticWhite_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000061/AT012_ArcticWhite_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 367,
+              "y": 386,
+              "w": 466,
+              "h": 537
+            }
+          ],
+          "crop": [
+            123,
+            228,
+            1078,
+            1321
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 35.8,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000061/AT012_ArcticWhite_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000061/AT012_ArcticWhite_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 367,
+              "y": 386,
+              "w": 466,
+              "h": 573
+            }
+          ],
+          "crop": [
+            123,
+            228,
+            1078,
+            1321
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 35.8,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        }
+      ]
+    },
+    {
+      "id": 300,
+      "name": "AWDis 240 T",
+      "styleCode": "AT003",
+      "source": "admin",
+      "templateVersion": 5,
+      "updatedAt": "2026-09-24T06:55:51.334Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000056/AT003_AtlanticBlue_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000056/AT003_AtlanticBlue_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 359.584735576923,
+              "y": 397.48918269230774,
+              "w": 154.30616769217636,
+              "h": 154.30616769217636
+            },
+            {
+              "x": 714.0030048076923,
+              "y": 397.48918269230774,
+              "w": 154.30616769217636,
+              "h": 154.30616769217636,
+              "label": "Box 2"
+            }
+          ],
+          "crop": [
+            98,
+            223,
+            1156,
+            1293
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 39.19376659381279,
+          "imageWidth": 1200,
+          "imageHeight": 1440,
+          "measureLine": {
+            "x1": 312.66526442307696,
+            "y1": 637.1394230769231,
+            "x2": 939.7536057692307,
+            "y2": 633.2722355769231
+          }
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000056/AT003_AtlanticBlue_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000056/AT003_AtlanticBlue_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 361,
+              "y": 378,
+              "w": 532,
+              "h": 621
+            }
+          ],
+          "crop": [
+            98,
+            223,
+            1156,
+            1293
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 66.125,
+          "imageWidth": 1200,
+          "imageHeight": 1440,
+          "measureLine": {
+            "x1": 98,
+            "y1": 629.6,
+            "x2": 1156,
+            "y2": 629.6
+          }
+        }
+      ],
+      "garmentWidthMm": 406.4
+    },
+    {
+      "id": 1016,
+      "name": "Executive waistcoat",
+      "styleCode": "RX705",
+      "source": "admin",
+      "templateVersion": 5,
+      "updatedAt": "2026-09-24T05:45:54.477Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c700b606/5dfabf8c6aa61163fd001f36b5ff0dcd.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c700b606/5dfabf8c6aa61163fd001f36b5ff0dcd.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 345.07271634615375,
+              "y": 266.3239182692308,
+              "w": 145.50120192307708,
+              "h": 169.9163695927092
+            }
+          ],
+          "crop": [
+            143,
+            78,
+            1046,
+            1403
+          ],
+          "embroidery": [
+            {
+              "x1": 661,
+              "y1": 240,
+              "x2": 800,
+              "y2": 448
+            }
+          ],
+          "pixelsPerInch": 12.141596895168341,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c700b606/5dfabf8c6aa61163fd001f36b5ff0dcd.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c700b606/5dfabf8c6aa61163fd001f36b5ff0dcd.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 374,
+              "y": 237,
+              "w": 441,
+              "h": 509
+            }
+          ],
+          "crop": [
+            143,
+            78,
+            1046,
+            1403
+          ],
+          "embroidery": [
+            {
+              "x1": 661,
+              "y1": 240,
+              "x2": 800,
+              "y2": 448
+            }
+          ],
+          "pixelsPerInch": 33.9,
+          "imageWidth": 1200,
+          "imageHeight": 1440
+        }
+      ]
+    },
+    {
+      "id": 1311,
+      "name": "Hi-vis flame-retardant anti-static waistcoat (HVW100ASFR)",
+      "styleCode": "YK075",
+      "source": "admin",
+      "templateVersion": 5,
+      "updatedAt": "2026-09-24T06:17:17.593Z",
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c4251848/5c923f450d4a324e41000039/68a3f3d6/YK075_Yellow_FT.JPG",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c4251848/5c923f450d4a324e41000039/68a3f3d6/YK075_Yellow_FT.JPG",
+          "masks": [],
+          "areas": [
+            {
+              "x": 694.6574519230769,
+              "y": 349.1352163461537,
+              "w": 188.9966973182864,
+              "h": 188.9966973182864
+            }
+          ],
+          "crop": [
+            130,
+            50,
+            1105,
+            1413
+          ],
+          "embroidery": [
+            {
+              "x1": 661,
+              "y1": 240,
+              "x2": 800,
+              "y2": 448
+            }
+          ],
+          "pixelsPerInch": 60.006451398555924,
+          "imageWidth": 1200,
+          "imageHeight": 1440,
+          "measureLine": {
+            "x1": 130,
+            "y1": 567.94,
+            "x2": 1090.087139423077,
+            "y2": 562.3828125
+          }
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c4251848/5c923f450d4a324e41000039/68a3f3d6/YK075_Yellow_FT.JPG",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/c4251848/5c923f450d4a324e41000039/68a3f3d6/YK075_Yellow_FT.JPG",
+          "masks": [],
+          "areas": [
+            {
+              "x": 380,
+              "y": 214,
+              "w": 475,
+              "h": 548
+            }
+          ],
+          "crop": [
+            130,
+            50,
+            1105,
+            1413
+          ],
+          "embroidery": [
+            {
+              "x1": 661,
+              "y1": 240,
+              "x2": 800,
+              "y2": 448
+            }
+          ],
+          "pixelsPerInch": 60.9375,
+          "imageWidth": 1200,
+          "imageHeight": 1440,
+          "measureLine": {
+            "x1": 130,
+            "y1": 567.94,
+            "x2": 1105,
+            "y2": 567.94
+          }
+        }
+      ],
+      "garmentWidthMm": 406.4
+    }
+  ]
+}
