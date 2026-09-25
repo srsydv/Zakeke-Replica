@@ -47,12 +47,14 @@ For each style we store:
 
 When the customer clicks a colour dot, we swap the photo. We do not paint a hex over one shirt.
 
+All of that lives in **PostgreSQL** (products, colours, print boxes, orders, saved designs). Same kind of database OrderWorkwear already uses. Design and box data can sit in `jsonb` columns.
+
 **Tools**
 
 | What | Why | Study |
 | --- | --- | --- |
 | Python (standard library: `csv`, `zipfile`) | One-off import of the Ralawise zip | [Python docs](https://docs.python.org/3/) |
-| SQLite | Small product database the site reads | [SQLite](https://www.sqlite.org/docs.html) · [Node sqlite](https://nodejs.org/api/sqlite.html) |
+| [PostgreSQL](https://www.postgresql.org/docs/) | Product catalogue, print boxes, orders, designs | [Postgres docs](https://www.postgresql.org/docs/) · [npm: pg](https://www.npmjs.com/package/pg) |
 
 ### Step B — Admin places the print boxes
 
@@ -221,12 +223,12 @@ These are the libraries this approach actually uses. Nothing exotic.
 | **sharp** | Server image work (resize, PNG) | [npm](https://www.npmjs.com/package/sharp) · [docs](https://sharp.pixelplumbing.com/) |
 | **typescript** | Typed JavaScript | [npm](https://www.npmjs.com/package/typescript) · [docs](https://www.typescriptlang.org/docs/) |
 | **tailwindcss** | Styling | [npm](https://www.npmjs.com/package/tailwindcss) · [docs](https://tailwindcss.com/docs) |
+| **pg** | Talk to PostgreSQL from Node | [npm](https://www.npmjs.com/package/pg) · [docs](https://node-postgres.com/) |
 
 **Built in (no extra vendor)**
 
 - Browser [Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) — compose mockup and plate
-- [SQLite](https://www.sqlite.org/docs.html) — catalogue
-- Python 3 — one-time Ralawise import
+- Python 3 — one-time Ralawise import (writes into Postgres)
 
 **Add only when we connect Myze**
 
