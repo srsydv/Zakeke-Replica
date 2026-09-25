@@ -1,7 +1,7 @@
 # First-party garment designer — how we would build it
 
 **For:** product / ops review  
-**Purpose:** show a clear, buildable path to our own 2D designer (instead of renting Zakeke for the on-screen part), and how that later feeds production (Myze) with our own image URLs.
+**Purpose:** show a clear, buildable path to our own 2D designer and print files, then feed production (Myze) with URLs we host. We do not rent a third-party designer.
 
 This is a logic plan, not a code dump. Each tool is named so you can open the official page and see what it is.
 
@@ -18,7 +18,7 @@ A shop + design studio where:
 5. They download a **preview** (shirt + logos) as PNG or PDF.
 6. We also make a **print plate** (logo only, real size) and store it. Myze only needs a URL to that file.
 
-We are **not** building 3D, Shopify, or a full replacement of Zakeke on day one. We are building the part customers and admins actually touch, plus a file we own so Myze can still print.
+We are **not** building 3D or Shopify. We own the designer customers and admins use, and we own the print files Myze downloads.
 
 ---
 
@@ -28,7 +28,7 @@ Three facts make this a normal web project, not a research project:
 
 - Ralawise already gives us a product list, colours, prices, and **one photo per colour**. We import that. We do not shoot the catalogue ourselves.
 - A print box is just a rectangle on a photo plus a real-world width (for example “this line on the photo is 16 inches”). That is school-level scale: box pixels ÷ line pixels × line millimetres.
-- Myze does not talk to Zakeke. It downloads two public image links: a small preview, and a high-res print file. If we create those files and put them on storage, Myze can keep working.
+- Myze only needs two public image links: a small preview, and a high-res print file. If we create those files and put them on storage, Myze can print.
 
 So the “magic” is: **measured boxes on a supplier photo**, then **two files we host**.
 
@@ -58,7 +58,7 @@ When the customer clicks a colour dot, we swap the photo. We do not paint a hex 
 
 Admin opens a garment the same way the customer will see it. They:
 
-1. Sketch a line on the fabric: “from here to here is 16 inches / 406 mm” (same idea Zakeke uses).
+1. Sketch a line on the fabric: “from here to here is 16 inches / 406 mm.”
 2. Draw one or more boxes (left chest, right chest, and so on).
 3. The system shows each box in millimetres from that line.
 4. Save. Those boxes become the only places a customer can put a logo.
@@ -78,7 +78,7 @@ The studio shows the colour photo and the empty boxes. Box 1 is selected. The cu
 
 Artwork cannot leave the box. They can still move it to another box.
 
-Live price uses our existing quote rules (quantity, decoration, rush). That is our maths, not Zakeke’s.
+Live price uses our existing quote rules (quantity, decoration, rush). That is our maths.
 
 **Tools**
 
@@ -134,7 +134,7 @@ Myze’s place-order call already expects:
 - `highresImageUrl` — the print plate
 - SKU, quantity, `printMethod: "DTF"`
 
-Zakeke is only used today to **create** those URLs. If we upload our two files to storage and save the links on the order line, Myze can fetch them the same way.
+We create both files, upload them to storage, and save the links on the order line. Myze fetches those URLs the same way it would fetch any public image.
 
 The link must be on the public internet (not a laptop download). That is what S3 is for.
 
@@ -167,8 +167,8 @@ Myze downloads the plate and prints DTF
 
 | Person | They do | They do not |
 | --- | --- | --- |
-| Customer | Design and order | See millimetre math or Zakeke |
-| Admin | Place boxes, review jobs | Draw in Zakeke backoffice |
+| Customer | Design and order | See millimetre math |
+| Admin | Place boxes, review jobs | Use a separate rented designer |
 | Production | Open the plate URL / Myze job | Print the pretty shirt photo |
 
 ---
@@ -189,11 +189,11 @@ Boxes visible before upload. Lock artwork to the selected box. Text, clipart, up
 **Phase 4 — Files**  
 Download mockup PNG/PDF. Make a plate PNG per box.
 
-**Phase 5 — Production hook (OrderWorkwear)**  
-Upload both files to S3. Put the URLs where Zakeke’s print-file URLs sit today. Keep Myze as-is.
+**Phase 5 — Production files**  
+Upload the mockup and the print plate to S3. Save those two HTTPS URLs on the order (preview + high-res). Myze already fetches URLs; it does not need a third-party designer.
 
-**Phase 6 — Only after Phase 5 is trusted**  
-Replace the Zakeke iframe, design clone, and template lock. That is a separate project. The designer can go live as the UI first; Zakeke can still mint print files until S3 plates are proven.
+**Phase 6 — Wire into the live shop**  
+Put this designer on the company-admin and orderer screens. Store the master design and the orderer copy in our database (clone + template lock are our rules). Add-to-order uses our design JSON and size/qty matrix. Fulfillment reads our S3 URLs and sends them to Myze.
 
 ---
 
@@ -245,7 +245,7 @@ These are the libraries this approach actually uses. Nothing exotic.
 | Colour photos are front-only | Boxes live on the front photo we have. Back/sleeve wait until we have those shots. |
 | Wrong file sent to Myze | Preview = shirt picture. High-res = plate only. Never swap them. |
 | Box in the wrong place | Admin draws on the **same photo** the customer sees. Measure line sets millimetres, not a guess. |
-| “Just replace Zakeke this week” | UI yes. Full Zakeke (templates, clone, print poll) no. Phase 5–6 are explicit. |
+| Shipping before a real DTF job | Run Phase 5–6 through one live print: our plate URL must land on a shirt before we call it done. |
 
 ---
 
@@ -262,4 +262,4 @@ We can build this because every piece already has a known method:
 
 That is a website, a ruler on a photo, and two image files. It is not a new print factory and not an AI product.
 
-If you want a next step: agree Phase 1–4 as the designer we own, and treat Myze S3 URLs (Phase 5) as the first production win. Leave a full Zakeke removal until those files have gone through a real DTF job.
+If you want a next step: agree Phase 1–4 as the designer we own, then Phase 5–6 so a real DTF job uses our S3 URLs. No rented designer in the path.
