@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { DesignerStudio } from "@/components/DesignerStudio";
-import { getProduct } from "@/lib/catalog";
+import { getProduct } from "@/server/services/catalog";
 
 export default async function DesignerPage({
   searchParams,

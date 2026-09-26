@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { listOrders } from "@/lib/orders";
+import { listOrders } from "@/server/services/orders";
 import { formatPricingGbp } from "@/lib/quote";
 
 export default async function AdminOrdersPage() {

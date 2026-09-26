@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { ProductDetail } from "@/components/ProductDetail";
-import { getProduct } from "@/lib/catalog";
+import { getProduct } from "@/server/services/catalog";
 
 export default async function ProductPage({
   params,

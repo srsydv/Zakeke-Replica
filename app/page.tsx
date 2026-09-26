@@ -2,7 +2,8 @@ import Link from "next/link";
 import { DummyOrderButton } from "@/components/DummyOrderButton";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
-import { featuredProducts, SHOP_CATEGORIES } from "@/lib/catalog";
+import { SHOP_CATEGORIES } from "@/lib/catalog";
+import { featuredProducts } from "@/server/services/catalog";
 import { fromPriceForProduct } from "@/lib/quote";
 
 export default async function HomePage() {

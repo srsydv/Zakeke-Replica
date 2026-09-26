@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ShopView } from "@/components/ShopView";
 import { GarmentTemplateForm } from "@/components/GarmentTemplateForm";
-import { getProduct, SHOP_CATEGORIES } from "@/lib/catalog";
-import { getOrCreateGarment } from "@/lib/garments";
+import { SHOP_CATEGORIES } from "@/lib/catalog";
+import { getProduct } from "@/server/services/catalog";
+import { getOrCreateGarment } from "@/server/services/garments";
 import { printSpecFor } from "@/lib/placements/print-spec";
 
 export default async function AdminGarmentsPage({

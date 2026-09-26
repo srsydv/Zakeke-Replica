@@ -8,10 +8,11 @@ import { orderItems, orderPlacements, orders } from "@/server/db/schema";
 import { artworkLabel, buildPrintJobs, type DesignObj, type LocationJob } from "@/lib/design";
 import { areaForPlacement, findSide, type PublicGarment } from "@/lib/garment-template";
 import { getOrCreateGarment, getStoredGarment } from "@/server/services/garments";
+import type { OrderStatus } from "@/lib/orders";
 import type { SizeQty } from "@/lib/quote";
 import type { RushTier } from "@/lib/pricing/rush-pricing";
 
-export type OrderStatus = "new" | "reviewed" | "in-production" | "done";
+export type { OrderStatus } from "@/lib/orders";
 
 export type OrderCustomer = {
   name: string;

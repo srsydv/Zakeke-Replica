@@ -5,8 +5,8 @@ import { DownloadDesign, DownloadPrintFiles } from "@/components/DownloadDesign"
 import { ArtworkOnly, DesignPreview } from "@/components/DesignPreview";
 import { artworkLabel } from "@/lib/design";
 import { findSide } from "@/lib/garment-template";
-import { getStoredGarment } from "@/lib/garments";
-import { getOrder } from "@/lib/orders";
+import { getStoredGarment } from "@/server/services/garments";
+import { getOrder } from "@/server/services/orders";
 import { formatPricingGbp } from "@/lib/quote";
 
 export default async function AdminOrderPage({

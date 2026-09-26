@@ -3,6 +3,9 @@ node_modules
 .env
 .DS_Store
 *.log
+data/catalog.db
+data/catalog.db-shm
+data/catalog.db-wal
 *.db-shm
 *.db-wal
 tsconfig.tsbuildinfo

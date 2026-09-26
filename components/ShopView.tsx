@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
-import { listProducts, SHOP_CATEGORIES } from "@/lib/catalog";
+import { SHOP_CATEGORIES } from "@/lib/catalog";
+import { listProducts } from "@/server/services/catalog";
 import { fromPriceForProduct } from "@/lib/quote";
 
 export async function ShopView({
