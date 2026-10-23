@@ -1,0 +1,44 @@
+HAVE YOU LOOKED AT THE PROTOTYPE? WHAT WILL YOU REUSE, WHAT WILL YOU REWRITE, AND WHY?
+
+Yes. We have reviewed the order builder prototype. It uses example garments and example prices, and it already proves the three things that are expensive to get wrong: where a print can sit, how the garment is shown in a chosen colour, and how a price is calculated on the server.
+
+We will also reuse the catalogue feed, card payment, email and file storage from OrderWorkwear, which is already running in production. We will not reuse OrderWorkwear’s screens. That product is a portal for companies ordering staff workwear. APE is a public shop with its own design.
+
+
+WHAT WE WILL REUSE
+
+The pricing engine.
+The prototype calculates the price on the server: garment, decoration, setup and VAT, as one breakdown. Checkout calculates it again and ignores any price changed in the browser. We keep that. APE’s own price tables replace the example numbers. Screen print and DTF are added as rules in the same engine, so the quick quote, the builder, the basket and the invoice all ask one place and cannot disagree.
+
+Print positions and real-world size.
+The prototype measures a line on the garment photo and turns the print area into a real size in millimetres. Artwork stays inside that position. We keep the measurement. On the APE site the customer chooses a named position and a size. They do not drag artwork freely around the shirt. That is the rule in the spec, so the on-screen handles are simplified. The measurement underneath stays.
+
+The garment on screen.
+Choosing a colour shows that colour’s real photo. Where a photo cannot be used, the prototype shows a simple outline filled with the colour. We keep both. The sharper Hero treatment (a prepared photo that can be tinted) is built on this same stage. It is not a second designer.
+
+From OrderWorkwear, already in production.
+The Ralawise product feed into the database.
+Stripe, with the price recalculated at checkout.
+Resend, for the order and proof emails.
+Private file storage for artwork.
+These already do the job. Rewriting them would not make the shop more accurate.
+
+
+WHAT WE WILL REWRITE, AND WHY
+
+The pages.
+The prototype proves the rules. It is not APE’s design, and its garments and prices are examples. Home, the catalogue, the quote, the builder, the basket, checkout, the account, the proof page and admin are built to the new design.
+
+The builder steps.
+The prototype is a studio. APE’s builder is six steps: quantity, garment, colour, design, sizes, delivery, with the warnings and the blocked combinations from the spec. The placement rules and the price engine stay. The screens are new, so a customer follows APE’s flow rather than the prototype’s.
+
+Accounts, proof approval, the VAT invoice and the production sheet.
+The prototype stops once the design and the price are right. A public shop still needs a customer account, an approval of the proof before production, a VAT invoice, and a production sheet for the studio. Those are new, because they are not in the prototype.
+
+OrderWorkwear’s portal screens, and its rented designer.
+Company, branch and staff-orderer screens belong to a different product. APE’s customers never see them. The designer on the new site is the prototype’s own designer, not a rented one.
+
+
+WHY THIS SPLIT
+
+Rebuilding the price, the print measurement, the product feed and the payment would repeat work that already runs. Shipping the prototype screens as they are would give APE example data and the wrong layout. APE’s customers get APE’s site, with those proven rules underneath.

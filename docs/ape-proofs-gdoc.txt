@@ -1,0 +1,47 @@
+HOW ARE PROOFS UPLOADED, VERSIONED AND APPROVED?
+
+The studio uploads the proof. The customer approves it, or asks for a change. Production starts only after an approval is recorded. Each upload is a new version, and the record of who approved which version is kept on the order.
+
+
+UPLOAD
+
+After the order is paid, it sits in Artwork check. The studio opens the order in admin, downloads the original artwork, and checks it.
+
+If the file cannot be used, the studio marks it unusable. The customer is emailed the reason and a secure link to upload a replacement. That replacement is stored the same way as the first file: private, virus-checked, and kept with the order.
+
+When the artwork is usable, the studio uploads a proof for each build on the order. A proof is a PDF or an image. It is stored in the same private file store as the artwork, in APE’s account in London. It is not a public link.
+
+Uploading the proof moves that build to Proof sent and emails the customer. The email has two buttons: Approve, and Request changes.
+
+
+VERSIONS
+
+Every upload is a new version: version 1, version 2, and so on. The previous version is kept. It is not overwritten.
+
+The customer always sees the latest version, on the proof page and in their account. Admin shows the full list, with the time and the staff member who uploaded each one.
+
+A request for changes does not edit the old proof. The studio uploads a new file, and that file is the next version. The customer can ask for changes as many times as they need. Each round is one new version.
+
+
+APPROVAL
+
+The email button opens a proof page for that order. The customer does not have to sign in. The link is signed, it belongs to that order only, and it stops working once the proof is decided.
+
+The page shows the proof, the order summary, and two actions.
+
+Approve asks for the person’s name, then records the name, the version number, the date and the time. The customer cannot undo it.
+
+Request changes asks for a comment. That comment is stored on the order and emailed to the studio. The order moves to Changes requested, and it stays there until the studio uploads the next version.
+
+The same proof, the same buttons and the same record are in the customer’s account. Approving in the account and approving from the email are the same action. A colleague can approve from a forwarded email. The page still asks for their name, and that name is what is stored.
+
+If there is no decision, a reminder goes out after 2 working days. The delivery date moves with the wait, and the reminder says so. How long to wait before the studio cancels and refunds an unanswered proof is a rule for APE to set.
+
+
+WHAT APPROVAL DOES
+
+Approval moves the order to In production. The dispatch date is counted from the approval date, not from the day they paid, and the customer and the studio are both emailed that date.
+
+If the proof changes the price, for example more ink colours than the builder counted, the page shows the new price before the customer can approve. They pay the difference, or they receive a refund, from a link the studio sends in admin. Production does not start until that payment or refund is done.
+
+The proof file is deleted on the same timetable as the other order files: 24 months after dispatch, unless APE sets a different period.

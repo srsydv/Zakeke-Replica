@@ -1,0 +1,71 @@
+WHAT CAN APE STAFF CHANGE WITHOUT A DEVELOPER?
+
+An Admin user can change prices, rules, garments, orders and pages, and the site uses the change straight away. A Studio user can run orders only. A Content editor can edit pages only. Every admin sign-in uses two-factor authentication. Every change to a price, a rule or an order status is logged with the person and the time.
+
+Staff do this in admin. They do not edit the code, and they do not ask a developer for a normal day’s work.
+
+
+PRICES
+
+Admin can edit every price table: garment margins or garment prices, screen print, embroidery, DTF, DTG, setup fees, size surcharges, delivery speeds and VAT.
+
+There is a test calculator on the same screen. Admin can price a sample build and see the breakdown before saving.
+
+A saved change applies to the next calculation immediately. A basket that was built before the change is repriced at checkout, and the customer sees the old price and the new price. Past orders keep the price that was paid.
+
+Admin can also change the large-order threshold, above which the site stops offering checkout and asks for a hand-priced quote.
+
+
+RULES
+
+Admin can change the rules the builder enforces, and the sentence the customer sees when a choice is blocked.
+
+That includes each method’s minimum quantity, the largest and smallest print size, which positions a method may use, and combinations that are not allowed, such as a front print together with a chest logo.
+
+Admin maintains the colour list for each garment: name, colour value, family, supplier code, and whether it is a heather that cannot be recoloured. Admin can also keep the ink and thread list, with codes, for when colour matching is switched on.
+
+The builder reads these rules from admin. A developer is not required to change a minimum, a size limit or a blocked combination.
+
+
+GARMENTS
+
+Admin can add a garment, edit it, hide it, or discontinue it. Discontinuing it redirects its page to the category. It is not deleted with no redirect.
+
+For each garment, admin sets the name, the web address, the category, the collection, the description, the fabric, the sizes and the size chart, the colours, the decoration methods, and the print positions with their real-world size.
+
+Admin uploads the photos and can preview that garment in the builder before it goes live.
+
+A new garment follows the written guide, at one of three levels:
+
+Hero: prepare the photos, set the positions, check eight colours. About 1 to 2 hours once the steps are familiar.
+Auto: the supplier photo is processed by the existing script, positions come from the shape template, and a person checks it. About 5 minutes.
+Illustration: choose the drawn outline for that shape. No photo work.
+
+Quote-only products are marked as such and go to the enquiry form. No builder setup is required.
+
+The Ralawise feed keeps supplier cost, colours and sizes up to date. Admin chooses which of those products are on the site, and under APE’s own names.
+
+
+ORDERS
+
+Studio and Admin can list orders, filter them by status and date, and open one.
+
+On an order they can download the production sheet and the original artwork, upload a proof, move the status, add a courier and a tracking number, write an internal note, and send the customer a payment link or a refund when a proof changes the price.
+
+They cannot edit the design the customer paid for by typing a new price over it. A price change after the proof is the extra payment or the refund, and it is recorded on the order.
+
+Studio cannot open price tables and cannot export customer data. Admin can view a customer, their orders and their saved designs, and can export or delete that customer’s data when asked.
+
+
+PAGES
+
+A Content editor, and Admin, can edit the words and pictures on the pages without a developer.
+
+That covers the homepage blocks, Services, Our Work and case studies, Sustainability, About, Contact, FAQ, and the legal pages. They can also edit the SEO title and description on each page.
+
+A sustainability claim on a garment or a page is shown only when an evidence file is attached in admin, and that file has not expired. Staff add the file. The site will not show the claim without it.
+
+
+WHAT STILL NEEDS A DEVELOPER
+
+A new kind of page, a new decoration method, a change to the way a price is calculated rather than the numbers in the table, and a change to the builder’s steps or layout. Those are changes to the build, and they are quoted separately.

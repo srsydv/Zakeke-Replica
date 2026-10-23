@@ -94,6 +94,9 @@ export function Header() {
                 <Link href="/admin/garments" className="tiny-link">
                   Print boxes
                 </Link>
+                <Link href="/admin/logo-tools" className="tiny-link">
+                  Logo tools
+                </Link>
               </>
             ) : null}
             {user ? (

@@ -87,6 +87,7 @@ export default async function AdminOrderPage({
               objects={item.objects}
               side={mockupSide}
               sideTemplate={sideTemplate}
+              showPrintBox={false}
             />
             <DownloadDesign
               imageUrl={item.imageUrl}

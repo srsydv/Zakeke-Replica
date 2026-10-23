@@ -1,0 +1,25 @@
+HOW ARE VAT INVOICES MADE, AND DO THE LINES ALWAYS ADD UP TO THE TOTAL?
+
+Yes. The lines add up to the total on every invoice. The total is the amount Stripe charged, and the lines are built from that figure. They are not a second, separate sum.
+
+
+HOW AN INVOICE IS MADE
+
+When payment succeeds, the server creates one VAT invoice for that order. It uses the total stored at checkout, which is the price the server calculated in pence. The number the customer saw in the browser is not used.
+
+The invoice is a PDF. It is attached to the order confirmation email, and the customer can download it from their account at any time. Admin can download the same file from the order.
+
+The invoice carries APE’s name, address and VAT number, a unique invoice number, the date, the customer’s name and address, and their VAT number if they entered one. Each build on the order is a set of lines: garment, decoration, setup, size extras, delivery speed and delivery. VAT is the last line, at 20 percent.
+
+
+WHY THE LINES ADD UP
+
+Every amount is stored as a whole number of pence. The order total is the source of truth.
+
+The engine prices each part in pence, then adds those parts to the net total, then adds VAT on that net total. The gross total is net plus VAT. Because this is integer pence, those lines add up to the gross total with nothing left over.
+
+The price per piece shown to the customer is the gross total divided by the quantity, rounded to 2 decimal places for display. That per-piece figure is a label. It is not added back up to make the invoice. If a rounded per-piece price times the quantity would be a penny out, the invoice still shows the pence total that was charged, and the lines still sum to it.
+
+A refund does not rewrite the original invoice. The original lines stay as they were, still adding up to what was paid. A full or partial refund is a credit note, linked to that invoice, and the credit note’s own lines add up to the amount refunded.
+
+An extra charge after the proof, such as more ink colours, is a second invoice for the difference only. Its lines add up to that extra payment. Production waits until that payment, or the refund, is done.

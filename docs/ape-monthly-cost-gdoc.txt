@@ -1,0 +1,63 @@
+WHAT IT COSTS PER MONTH TO RUN
+
+About £100 a month at launch, before VAT and before card fees. That covers the live site, a staging copy, the database, artwork storage and email. Nothing else has to be paid for the site to work.
+
+These are round figures in pounds, based on current published prices for Amazon Web Services in London and for Resend. They will move a little with the exchange rate and with how much artwork you keep.
+
+
+HOSTING — ABOUT £70 A MONTH
+
+Live site, London: £20
+One small server (2 processors, 4 GB memory). It runs the website and the API together, including image and artwork conversion.
+
+Live database, London: £25
+PostgreSQL for garments, prices, orders, accounts and saved designs. Backed up daily, backups kept for 30 days.
+
+Staging site: £10
+A smaller copy of the server, so each week’s work can be clicked through before it goes live.
+
+Staging database: £15
+A smaller copy of the database, separate from live orders.
+
+
+FILE STORAGE — ABOUT £10 A MONTH
+
+Amazon S3 in London, private.
+Original artwork, previews and production sheets. Customers do not get public links to the files.
+
+£10 covers the first year at a normal order volume, including a daily backup of the files. If artwork is kept for many years, or if orders are very large files, this is the line that grows. A rough guide is about £1 a month for every 30 GB stored.
+
+
+EMAIL — ABOUT £15 A MONTH
+
+Resend, Pro plan.
+$20 a month, which is about £15. It includes 50,000 emails a month and has no daily cap.
+
+That is far more than launch needs. One order sends several emails (confirmation, studio notice, proof, reminders, dispatch), and a busy day can be more than 100 emails. Resend’s free plan stops at 100 emails a day, so we start on Pro so a proof or an order confirmation is not held back.
+
+The plan does not include a separate marketing-email list. The 17 order and proof emails are transactional. Marketing mail, if you add it later, is a different Resend plan and is not in this figure.
+
+
+OTHER SERVICES — £0 A MONTH
+
+Cloudflare (free plan): HTTPS and the spam check on enquiry and contact forms.
+
+Stripe: no monthly fee. APE pays Stripe’s card fee on each successful payment, taken from that payment. For a standard UK card that is currently 1.5% plus 20p. Apple Pay and Google Pay use the same card fee. The Stripe account is in APE’s name.
+
+Google Analytics, Google Tag Manager and Search Console: free.
+
+Virus scanning of uploads: runs on the server we already pay for. No separate service.
+
+Domain: the one you already own. Renewal is about £15 a year, so about £1 a month, paid to the registrar, not to us.
+
+
+TOTAL
+
+Hosting, live and staging: £70
+File storage: £10
+Email (Resend): £15
+Other paid services: £0
+
+About £100 a month, before VAT.
+
+VAT on these bills is normally reclaimable if APE is VAT-registered. Card fees are not part of the £100; they come out of each order.

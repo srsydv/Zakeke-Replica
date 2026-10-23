@@ -1,0 +1,28 @@
+HOW DO YOU HANDLE AND PRICE A CHANGE REQUEST?
+
+Anything in the spec is in the build. Anything that is not written there is a change request. It gets its own written estimate, and the work starts only after that estimate is accepted. It is not folded into the original price.
+
+
+WHAT COUNTS AS A CHANGE
+
+A new page, a new decoration method, a new integration, a new step in the builder, or a change to a screen after the design has been handed over. The spec already says that anything not designed at handover is a change.
+
+A customer asking for a change to their proof is not one of these. That is the proof flow already in the build: they comment, the studio uploads the next version, and it is not billed as a project change.
+
+A bug is not a change either. If a finished feature does not do what the spec and the acceptance checks say, it is fixed as part of the build. A new behaviour on top of the spec is a change.
+
+
+HOW IT IS HANDLED
+
+The request is sent in writing. We reply in writing with four things: whether it is already in the spec, what we would build, how many days it takes, and what it does to the launch date.
+
+Work on it does not start until APE accepts that reply. The acceptance is kept with the spec, so the spec plus the accepted changes are the whole agreement.
+
+If the launch date stays fixed, the reply also says what moves to phase 2 to make room, using the order already in the spec. If the date can move, the reply says the new date instead. APE chooses which of those two they want.
+
+
+HOW IT IS PRICED
+
+The change is estimated in developer-days, line by line, in the same way as the effort table. It is priced at the same day rate as the rest of the build. There is no separate change-request rate, and there is no charge for writing the estimate.
+
+A small clarification of something the spec already requires is not billed. If the clarification would add days, it is written up as a change before those days are spent.

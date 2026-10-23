@@ -103,22 +103,13 @@ async function migrateJsonIfNeeded() {
 
 async function persistOrderRow(order: StoredOrder, writeJson = true) {
   const db = getDb();
-  await db
-    .insert(orders)
-    .values({
-      id: order.id,
-      createdAt: order.createdAt,
-      status: order.status,
-      isDummy: order.isDummy ? 1 : 0,
-      customerName: order.customer.name,
-      customerEmail: order.customer.email,
-      customerAddress: order.customer.address,
-      totalIncVat: order.totalIncVat,
-      payload: order,
-    })
-    .onConflictDoUpdate({
-      target: orders.id,
-      set: {
+  // Opening an order rewrites its lines. Next.js can run that page twice at once,
+  // so the rewrite has to hold the order row until both the delete and insert finish.
+  await db.transaction(async (tx) => {
+    await tx
+      .insert(orders)
+      .values({
+        id: order.id,
         createdAt: order.createdAt,
         status: order.status,
         isDummy: order.isDummy ? 1 : 0,
@@ -127,62 +118,76 @@ async function persistOrderRow(order: StoredOrder, writeJson = true) {
         customerAddress: order.customer.address,
         totalIncVat: order.totalIncVat,
         payload: order,
-      },
-    });
-  await db.delete(orderItems).where(eq(orderItems.orderId, order.id));
-  await db.delete(orderPlacements).where(eq(orderPlacements.orderId, order.id));
-  for (const item of order.items) {
-    const qty = item.sizeQuantities.reduce((sum, row) => sum + (row.quantity || 0), 0);
-    const lineTotal = (item.quote as { rush?: { totalIncVat?: number } } | undefined)?.rush?.totalIncVat ?? 0;
-    await db.insert(orderItems).values({
-      id: item.id,
-      orderId: order.id,
-      productId: item.productId,
-      styleCode: item.styleCode ?? "",
-      garmentName: item.name,
-      brand: item.brand,
-      color: item.color,
-      sizes: item.sizeQuantities.filter((row) => row.quantity > 0),
-      decoration: item.decoration,
-      quantity: qty,
-      totalIncVat: lineTotal,
-    });
-    const placementRows = item.printJobs.flatMap((job) =>
-      job.artworks.map((art) => ({
+      })
+      .onConflictDoUpdate({
+        target: orders.id,
+        set: {
+          createdAt: order.createdAt,
+          status: order.status,
+          isDummy: order.isDummy ? 1 : 0,
+          customerName: order.customer.name,
+          customerEmail: order.customer.email,
+          customerAddress: order.customer.address,
+          totalIncVat: order.totalIncVat,
+          payload: order,
+        },
+      });
+    await tx.execute(sql`select ${orders.id} from ${orders} where ${orders.id} = ${order.id} for update`);
+    await tx.delete(orderItems).where(eq(orderItems.orderId, order.id));
+    await tx.delete(orderPlacements).where(eq(orderPlacements.orderId, order.id));
+    for (const item of order.items) {
+      const qty = item.sizeQuantities.reduce((sum, row) => sum + (row.quantity || 0), 0);
+      const lineTotal = (item.quote as { rush?: { totalIncVat?: number } } | undefined)?.rush?.totalIncVat ?? 0;
+      await tx.insert(orderItems).values({
+        id: item.id,
         orderId: order.id,
-        itemId: item.id,
         productId: item.productId,
         styleCode: item.styleCode ?? "",
         garmentName: item.name,
+        brand: item.brand,
         color: item.color,
-        side: job.side,
-        placementCode: job.code,
-        placementLabel: job.label,
-        printWIn: job.printAreaIn?.w ?? null,
-        printHIn: job.printAreaIn?.h ?? null,
-        ppi: job.pixelsPerInch ?? null,
-        imageW: job.imageWidth ?? null,
-        imageH: job.imageHeight ?? null,
-        crop: job.crop ? JSON.stringify(job.crop) : null,
-        boxXPx: job.printBoxPx?.x ?? null,
-        boxYPx: job.printBoxPx?.y ?? null,
-        boxWPx: job.printBoxPx?.w ?? null,
-        boxHPx: job.printBoxPx?.h ?? null,
-        artworkId: art.id,
-        artworkKind: art.obj.type,
-        artworkLabel: artworkLabel(art.obj),
-        widthIn: art.widthIn,
-        heightIn: art.heightIn,
-        leftIn: art.leftIn,
-        topIn: art.topIn,
-        artXPx: art.pixelOnGarment?.x ?? null,
-        artYPx: art.pixelOnGarment?.y ?? null,
-        artWPx: art.pixelOnGarment?.w ?? null,
-        artHPx: art.pixelOnGarment?.h ?? null,
-      })),
-    );
-    if (placementRows.length) await db.insert(orderPlacements).values(placementRows);
-  }
+        sizes: item.sizeQuantities.filter((row) => row.quantity > 0),
+        decoration: item.decoration,
+        quantity: qty,
+        totalIncVat: lineTotal,
+      });
+      const placementRows = item.printJobs.flatMap((job) =>
+        job.artworks.map((art) => ({
+          orderId: order.id,
+          itemId: item.id,
+          productId: item.productId,
+          styleCode: item.styleCode ?? "",
+          garmentName: item.name,
+          color: item.color,
+          side: job.side,
+          placementCode: job.code,
+          placementLabel: job.label,
+          printWIn: job.printAreaIn?.w ?? null,
+          printHIn: job.printAreaIn?.h ?? null,
+          ppi: job.pixelsPerInch ?? null,
+          imageW: job.imageWidth ?? null,
+          imageH: job.imageHeight ?? null,
+          crop: job.crop ? JSON.stringify(job.crop) : null,
+          boxXPx: job.printBoxPx?.x ?? null,
+          boxYPx: job.printBoxPx?.y ?? null,
+          boxWPx: job.printBoxPx?.w ?? null,
+          boxHPx: job.printBoxPx?.h ?? null,
+          artworkId: art.id,
+          artworkKind: art.obj.type,
+          artworkLabel: artworkLabel(art.obj),
+          widthIn: art.widthIn,
+          heightIn: art.heightIn,
+          leftIn: art.leftIn,
+          topIn: art.topIn,
+          artXPx: art.pixelOnGarment?.x ?? null,
+          artYPx: art.pixelOnGarment?.y ?? null,
+          artWPx: art.pixelOnGarment?.w ?? null,
+          artHPx: art.pixelOnGarment?.h ?? null,
+        })),
+      );
+      if (placementRows.length) await tx.insert(orderPlacements).values(placementRows);
+    }
+  });
   if (writeJson) {
     const data = readJsonFile();
     const index = data.orders.findIndex((row) => row.id === order.id);

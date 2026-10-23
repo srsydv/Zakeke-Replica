@@ -2,6 +2,7 @@ import cookieParser from "cookie-parser";
 import express, { type NextFunction, type Request, type Response } from "express";
 import { authRouter } from "@/server/routes/auth";
 import { garmentsRouter } from "@/server/routes/garments";
+import { geminiImageRouter } from "@/server/routes/gemini-image";
 import { healthRouter } from "@/server/routes/health";
 import { imagesRouter } from "@/server/routes/images";
 import { ordersRouter } from "@/server/routes/orders";
@@ -19,6 +20,7 @@ export function createApp() {
   app.use(ordersRouter);
   app.use(garmentsRouter);
   app.use(imagesRouter);
+  app.use(geminiImageRouter);
   app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
     console.error(err);
     res.status(500).json({ error: "Server error." });

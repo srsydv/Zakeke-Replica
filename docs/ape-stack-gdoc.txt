@@ -1,0 +1,89 @@
+WHAT WE WILL BUILD IT WITH
+
+We will build it as a custom site in TypeScript: React and Next.js for the website, Node.js with Express for the server, and PostgreSQL for the data. It will be hosted on Amazon Web Services in London, in accounts in APE’s name.
+
+Why this, in short. The price, the order, the proof and the production sheet are all one system. The same server that calculates the price also takes the payment, stores the artwork and writes the sheet the studio prints from. The prototype already works this way, so the production site reuses that logic instead of starting again on a shop platform.
+
+
+LANGUAGE
+
+TypeScript.
+
+One language for the pages and the server. Prices are calculated in pence, and types catch mistakes in the pricing rules before they reach a customer.
+
+
+WEBSITE
+
+React and Next.js.
+
+Shop, garment pages, quote, builder, cart, checkout, account and admin. Garment and content pages are rendered on the server so they load quickly and can rank in search.
+
+
+STYLING
+
+Tailwind CSS.
+
+The design system (type, spacing, components) applied consistently across the many page templates.
+
+
+GARMENT ON SCREEN
+
+PixiJS.
+
+Draws the garment, colour and print positions in the browser. This is what makes a colour change feel instant after the first load.
+
+
+SERVER
+
+Node.js and Express.
+
+Pricing, catalogue, accounts, orders, proofs, emails and admin. The browser only displays the price. Checkout recalculates it on the server, so a price edited in the browser is never what gets charged.
+
+
+DATABASE
+
+PostgreSQL.
+
+Garments, colours, price tables, orders, saved designs and the proof record.
+
+
+PAYMENTS
+
+Stripe.
+
+Card, Apple Pay and Google Pay, with 3D Secure. Card numbers stay inside Stripe’s fields. The Stripe account is in APE’s name.
+
+
+ARTWORK FILES
+
+Private Amazon S3 bucket (London).
+
+Original files and previews, stored privately, virus-scanned on upload, and removed after the retention period you set.
+
+
+EMAIL
+
+Resend.
+
+The 17 order and proof emails, sent from APE’s domain with SPF, DKIM and DMARC so they do not land in spam.
+
+
+FORMS AND HTTPS
+
+Cloudflare.
+
+HTTPS, and a spam check on the enquiry and contact forms.
+
+
+HOSTING
+
+The site and the API run together on a small server in AWS London (eu-west-2). The database is Amazon RDS PostgreSQL in the same region, backed up daily and kept for 30 days. Artwork sits in a private S3 bucket in London. A second copy of the same setup is the staging site, so you can click through each week’s work before it goes live.
+
+Domain, hosting, Stripe, analytics and email accounts are all in APE’s name, and the code sits in a repository APE owns.
+
+Rough running cost at launch, before card fees and VAT: about £100 a month. That covers the live site, a staging copy, the database, file storage and Resend. Stripe is per transaction, not a monthly platform fee. The monthly breakdown is in the running-costs note.
+
+
+WHAT APE STAFF DO WITHOUT US
+
+Price tables, garments, colours, orders, proofs and page copy are edited in the admin. Adding a garment follows the written preparation steps in the spec (Hero, Auto or Illustration). A developer is not required for a normal price change or a normal order.

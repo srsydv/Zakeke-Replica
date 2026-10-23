@@ -1,0 +1,45 @@
+HOW WILL YOU HIT THE SPEED TARGETS, AND MAKE THE BUILDER WORK ON A SMALL PHONE AND BY KEYBOARD?
+
+The first garment is on screen within 3 seconds on a 4G phone. After that, a colour change is under a tenth of a second, and switching front to back is under three tenths of a second. The same builder can be finished on a 360 pixel wide phone, and with the keyboard alone.
+
+
+THE FIRST GARMENT, WITHIN 3 SECONDS
+
+The page shows the garment photo before it loads the rest of the builder.
+
+The photo that arrives first is the one colour the customer already chose, front view, compressed and sized for a phone screen. It is not the full print-resolution file. That file is used later, for the studio. The small picture is served from Cloudflare, so a phone in the UK is not fetching it from far away.
+
+The page shell is already rendered by the server, with the space for the garment reserved, so the screen does not jump when the picture arrives. The heavier drawing code loads after the garment is visible. The customer can see the shirt while that finishes.
+
+This is checked on a real mid-range Android phone on a 4G connection, not only on a laptop.
+
+
+A COLOUR CHANGE, UNDER A TENTH OF A SECOND
+
+A colour change does not ask the server for a new page, and it does not wait on a new download.
+
+Illustration garments are a drawing already on screen. Changing colour refills that drawing. That is immediate.
+
+Simulated colours use the prepared garment image already in memory. The new colour is applied on the phone. That is also under a tenth of a second, which is why this is the method for a Hero garment.
+
+Real colour photos are fetched quietly after the first picture is up, for the colours of that garment. Once a photo is on the phone, tapping its swatch swaps the picture in memory, which is under a tenth of a second. If the customer taps a swatch a moment too early, the simulated colour shows at once and the real photo replaces it when it arrives. The label says Simulated until the real photo is showing.
+
+Switching front and back uses the same idea. Both views are fetched after the first one is visible, so the switch is a picture already on the phone, under three tenths of a second.
+
+
+A SMALL PHONE
+
+The phone layout is the one in the design: the garment on top, the steps in a row, the step content below, and the price fixed to the bottom of the screen. Nothing scrolls sideways at 360 pixels wide.
+
+The customer chooses a named position and a size. They do not drag artwork around the shirt. A slider and a set of position buttons work with a thumb, and they do not depend on a wide screen.
+
+Upload, text, quantity and sizes are ordinary controls stacked under the garment. The price stays visible while they change.
+
+
+THE KEYBOARD
+
+The same choices are buttons, a slider and fields, so the builder can be completed with the keyboard and nothing else.
+
+Tab moves through the steps, the positions, the size, the upload and the text, in that order. The control that has focus is visibly marked. The size slider moves with the arrow keys. Choosing a position is a button, not a drag. There is no action that can only be done with a mouse or a finger.
+
+Labels sit on the controls, body text meets the contrast requirement, and with reduced motion switched on the garment does not animate. This is part of the WCAG 2.2 AA check, and it is repeated on the 360 pixel phone.

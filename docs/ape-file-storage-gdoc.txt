@@ -1,0 +1,36 @@
+WHERE ARE UPLOADED FILES KEPT? ARE THEY PRIVATE AND VIRUS-CHECKED, AND WHEN ARE THEY DELETED?
+
+Uploaded artwork is kept in a private file store on Amazon Web Services in London, in the AWS account in APE’s name. This is the storage already included at about £10 a month. The original file, the preview image and any proof the studio uploads all live there.
+
+
+THEY ARE PRIVATE
+
+The store is not public. There is no web link a stranger can open, and the file name cannot be guessed.
+
+A customer sees their own preview only when they are signed in to that order or that saved design. Studio staff download the original from admin. That download link lasts a few minutes and then stops working. It is issued only to a signed-in staff user.
+
+
+THEY ARE VIRUS-CHECKED
+
+Every upload is scanned on the server before it is accepted. The scan runs on the server we already pay for. There is no separate virus-scanning bill.
+
+If the scan finds a problem, the file is refused. The customer is asked to upload a different file, and the rejected file is not kept.
+
+
+WHEN THEY ARE DELETED
+
+APE still needs to confirm how long artwork is kept. Until you set a different number, this is the rule we will build:
+
+An order’s files, meaning the original artwork, the preview and the proof, are deleted 24 months after the order is dispatched. If the order is cancelled, they are deleted 24 months after cancellation.
+
+A saved design that never becomes an order is kept while the customer keeps it. It is deleted when they delete the design, or 24 months after they last edited it, whichever comes first.
+
+An upload that is never saved and never ordered is deleted after 30 days.
+
+Files sent with an enquiry are deleted 24 months after the enquiry is marked handled.
+
+When a customer deletes their account, their personal details are removed. Artwork for an order that is still inside the 24 months stays until that date, because the studio may need it if there is a dispute, and is then deleted. The order record and the VAT invoice are kept for 6 years for UK tax, without the artwork file and with the personal details minimised.
+
+A file removed from the live store can still sit in the daily backup for up to 30 days. Those backups are then discarded. After that, the file is gone.
+
+If 24 months is too long or too short, say what the period should be and we will use that instead. The deletion itself is automatic. Staff do not have to remember to remove files by hand.

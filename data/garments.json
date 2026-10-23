@@ -5,84 +5,97 @@
       "name": "Acid washed heavy oversized tee",
       "styleCode": "BY189",
       "source": "admin",
+      "updatedAt": "2026-10-01T08:01:21.625Z",
       "templateVersion": 5,
-      "updatedAt": "2026-09-24T05:20:04.641Z",
       "sides": [
         {
-          "name": "Front",
-          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
-          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
-          "masks": [],
-          "areas": [
-            {
-              "x": 344.44613759690634,
-              "y": 240.3383413461537,
-              "w": 130.02802105693985,
-              "h": 149.93247685933332
-            }
-          ],
           "crop": [
             43,
             28,
             1158,
             1438
           ],
+          "name": "Front",
+          "areas": [
+            {
+              "h": 152.82926361113957,
+              "w": 152.82926361113957,
+              "x": 344.44613759690634,
+              "y": 240.3383413461537
+            }
+          ],
+          "masks": [],
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
           "embroidery": [
             {
               "x1": 329,
-              "y1": 222,
               "x2": 510,
+              "y1": 222,
               "y2": 416
             },
             {
               "x1": 690,
-              "y1": 222,
               "x2": 871,
+              "y1": 222,
               "y2": 416
             }
           ],
-          "pixelsPerInch": 9.995498457288887,
           "imageWidth": 1200,
-          "imageHeight": 1440
+          "imageHeight": 1440,
+          "pixelsPerInch": 38.81863295722945,
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
+          "measureLine": {
+            "x1": 255.7481971153846,
+            "y1": 552.7463942307692,
+            "x2": 954.4471153846154,
+            "y2": 559.8858173076923
+          }
         },
         {
-          "name": "Back",
-          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
-          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
-          "masks": [],
-          "areas": [
-            {
-              "x": 299,
-              "y": 232,
-              "w": 601,
-              "h": 739
-            }
-          ],
           "crop": [
             43,
             28,
             1158,
             1438
           ],
+          "name": "Back",
+          "areas": [
+            {
+              "h": 739,
+              "w": 601,
+              "x": 299,
+              "y": 232
+            }
+          ],
+          "masks": [],
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
           "embroidery": [
             {
               "x1": 329,
-              "y1": 222,
               "x2": 510,
+              "y1": 222,
               "y2": 416
             },
             {
               "x1": 690,
-              "y1": 222,
               "x2": 871,
+              "y1": 222,
               "y2": 416
             }
           ],
-          "pixelsPerInch": 46.2,
           "imageWidth": 1200,
-          "imageHeight": 1440
+          "imageHeight": 1440,
+          "pixelsPerInch": 61.94444444444444,
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/661267df/61a7ce3cfe9cd9426c00004c/BY189_Asphalt_FT.jpg",
+          "measureLine": {
+            "x1": 43,
+            "y1": 563.8,
+            "x2": 1158,
+            "y2": 563.8
+          }
         }
-      ]
+      ],
+      "garmentWidthMm": 457.2
     },
     {
       "id": 232,
@@ -872,6 +885,110 @@
           }
         }
       ]
+    },
+    {
+      "id": 229,
+      "name": "Anthem distortion washed t-shirt",
+      "styleCode": "AM019",
+      "source": "admin",
+      "updatedAt": "2026-10-01T07:31:46.549Z",
+      "templateVersion": 5,
+      "sides": [
+        {
+          "name": "Front",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000040/AM019_WashedBlack_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000040/AM019_WashedBlack_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 349.79146634615387,
+              "y": 346.18509615384613,
+              "w": 148.7054013830659,
+              "h": 148.7054013830659
+            },
+            {
+              "x": 702.1651369599889,
+              "y": 346.18509615384613,
+              "w": 148.7054013830659,
+              "h": 148.7054013830659,
+              "label": "Box 2"
+            }
+          ],
+          "crop": [
+            45,
+            168,
+            1155,
+            1343
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 37.77117195129873,
+          "imageWidth": 1200,
+          "imageHeight": 1440,
+          "measureLine": {
+            "x1": 267.60216346153845,
+            "y1": 623.5727163461538,
+            "x2": 947.4789663461538,
+            "y2": 621.1568509615385
+          }
+        },
+        {
+          "name": "Back",
+          "imageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000040/AM019_WashedBlack_FT.jpg",
+          "previewImageUrl": "https://cdn.pimber.ly/public/asset/raw/571f95845f13380f0056d06a/6ddfeedb/692831c89eee9a377f000040/AM019_WashedBlack_FT.jpg",
+          "masks": [],
+          "areas": [
+            {
+              "x": 292,
+              "y": 338,
+              "w": 615,
+              "h": 682
+            }
+          ],
+          "crop": [
+            45,
+            168,
+            1155,
+            1343
+          ],
+          "embroidery": [
+            {
+              "x1": 329,
+              "y1": 222,
+              "x2": 510,
+              "y2": 416
+            },
+            {
+              "x1": 690,
+              "y1": 222,
+              "x2": 871,
+              "y2": 416
+            }
+          ],
+          "pixelsPerInch": 61.666666666666664,
+          "imageWidth": 1200,
+          "imageHeight": 1440,
+          "measureLine": {
+            "x1": 45,
+            "y1": 614.5,
+            "x2": 1155,
+            "y2": 614.5
+          }
+        }
+      ],
+      "garmentWidthMm": 457.2
     }
   ]
 }

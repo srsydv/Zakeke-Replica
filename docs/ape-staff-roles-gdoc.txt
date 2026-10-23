@@ -1,0 +1,33 @@
+WHAT STAFF ROLES ARE POSSIBLE, AND IS TWO-STEP SIGN-IN SUPPORTED?
+
+Three staff roles. An Admin user can assign them. Two-step sign-in is required on every staff account, including Admin.
+
+
+ROLES
+
+Admin
+The whole of admin. Prices, rules, garments, colours, orders, proofs, refunds, customers, pages and settings. Admin can invite a staff user, change their role, and remove them.
+
+Studio
+Orders only. They can open an order, download the production sheet and the original artwork, upload a proof, change the status, add tracking, write an internal note, and send a payment link or a refund when a proof changes the price.
+
+Studio does not see price tables, and Studio cannot export customer data.
+
+Content editor
+Pages only. Homepage blocks, Services, Our Work and case studies, Sustainability, About, Contact, FAQ, the legal pages, and the SEO title and description on each page.
+
+A Content editor does not see orders, prices or customer data.
+
+One person has one role. A staff user who needs two jobs, for example proofs and page edits, is given Admin, or two separate logins if APE prefers the access kept apart.
+
+
+TWO-STEP SIGN-IN
+
+Yes. Every staff sign-in is two steps, and it cannot be turned off for a single user.
+
+Step one is the email and password.
+Step two is a six-digit code from an authenticator app on the person’s phone, such as the app already used for other work accounts. The code changes every 30 seconds. A text message is not used.
+
+The second step is set up the first time that person signs in. Admin can reset it if they lose the phone, and the person sets it up again on the next sign-in.
+
+Customer accounts are separate. A customer signs in with email and password. The two-step requirement is for staff, because staff can see orders, artwork and prices.

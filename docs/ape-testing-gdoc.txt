@@ -1,0 +1,43 @@
+HOW DO YOU TEST: BROWSERS, PHONES, ACCESSIBILITY, PAYMENTS?
+
+Each feature is tested on the staging site first, and the same checks are repeated on the live site before the build is accepted. A feature is finished when these checks pass, not when the code is written.
+
+
+BROWSERS
+
+The latest two versions of Chrome, Safari on Mac, Edge, Firefox, and Samsung Internet.
+
+On each of those we open the pages a customer actually uses: a garment page, the quote, the builder, the basket, checkout, and the proof page. We look for a layout that overflows, a button that does nothing, and a price that does not match the server.
+
+
+PHONES
+
+A real iPhone on Safari, and a real mid-range Android phone on Chrome. Resizing a desktop window is not a substitute.
+
+The narrowest check is 360 pixels wide, which is a small phone. There is no horizontal scrolling. The builder’s price stays on screen, the steps can be completed, and the proof page can be approved from the email on the phone.
+
+We also check a tablet width and a desktop width up to 1920 pixels, because the designs are supplied at phone, tablet and desktop.
+
+
+ACCESSIBILITY
+
+The target is WCAG 2.2 AA, and the launch check is that no critical or serious issue remains.
+
+The builder, the basket, checkout and the proof page can be completed with the keyboard alone. There is no action that can only be done by dragging. Focus is visible. Buttons and fields have labels. Body text meets the contrast requirement. With reduced motion switched on, the page does not animate.
+
+An automated scan is run on the main templates, and then a person repeats the keyboard and screen-reader path on the builder and on checkout. The scan does not replace that pass.
+
+
+PAYMENTS
+
+Card payments are tested in Stripe’s test mode on staging, with Stripe’s test cards.
+
+A normal UK card payment succeeds, including 3D Secure, where the bank asks the customer to confirm. The order is created only after Stripe confirms the payment. The customer gets the confirmation page and the confirmation email, and the studio sees the order.
+
+A failed or cancelled payment returns the customer to checkout with the basket still there and the reason shown. Nothing is charged and no order is created.
+
+Apple Pay and Google Pay are tested on a device that offers them.
+
+A price is then changed in the browser’s own tools, and checkout is submitted. The amount charged is the price the server calculated, not the edited one.
+
+On the live site, before launch, one real card payment is taken for a small amount and refunded from admin, so the live Stripe account, 3D Secure and the refund path are confirmed. After that, the twenty reference builds are priced to the penny on the quote, the builder, the basket, checkout and the invoice.

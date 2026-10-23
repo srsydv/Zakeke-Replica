@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Print box — Anthem heavyweight t-shirt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f3eee8;
+      --ink: #120522;
+      --blue: #0446d4;
+      --muted: #5c5668;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button:disabled { opacity: 0.4; cursor: default; }
+
+    .logo {
+      font-family: "Great Vibes", cursive;
+      font-size: 2rem;
+      color: var(--blue);
+      line-height: 1;
+      order: 1;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin: 0 0 0.35rem;
+    }
+    .muted { color: var(--muted); }
+    .tiny { font-size: 0.75rem; color: var(--muted); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 0.75rem 1.25rem;
+    }
+    .site-header__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0.55rem 1.4rem;
+      box-shadow: 0 8px 24px rgba(18, 5, 34, 0.06);
+    }
+    .site-nav { display: flex; gap: 1.1rem; flex: 1; font-weight: 600; order: 2; }
+    .header-end { margin-left: auto; display: flex; align-items: center; gap: 1rem; order: 3; }
+    .tiny-link { font-weight: 700; font-size: 0.85rem; color: var(--muted); background: none; border: 0; padding: 0; cursor: pointer; }
+
+    .admin-page { max-width: 1280px; margin: 1.5rem auto 3rem; padding: 0 1.25rem; }
+    .admin-head { display: flex; justify-content: space-between; gap: 1.5rem; align-items: start; margin-bottom: 1.25rem; }
+    .admin-head h1 { margin: 0.2rem 0 0.4rem; font-size: 2rem; font-weight: 700; }
+    .admin-card { background: #fff; border-radius: 20px; padding: 1.2rem 1.3rem; }
+    .admin-studio {
+      display: grid;
+      grid-template-columns: minmax(260px, 320px) 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .admin-studio__canvas {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .btn-primary, .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.75rem 1.35rem;
+      border: 0;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-ghost { background: transparent; border: 1.5px solid #d7d0c8; color: var(--ink); }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0 0.75rem;
+    }
+    .field-grid--scale { grid-template-columns: 1fr 1fr; }
+    .scale-ask {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 0.75rem 0.85rem;
+      margin: 0.75rem 0 0.25rem;
+    }
+    .scale-ask p {
+      margin: 0 0 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .field { display: flex; flex-direction: column; gap: 0.3rem; margin: 0.75rem 0; font-size: 0.85rem; font-weight: 600; }
+    .field input {
+      font-weight: 500;
+      padding: 0.45rem 0.55rem;
+      border-radius: 10px;
+      border: 1.5px solid #d7d0c8;
+      background: #fff;
+      color: var(--ink);
+      width: 100%;
+    }
+
+    .box-editor-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.9rem 0 0.75rem; }
+    .box-editor-tabs button {
+      border: 0;
+      background: var(--cream);
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .box-editor-tabs button.is-on { background: var(--ink); color: #fff; }
+
+    .box-list { margin: 0.75rem 0; }
+    .box-list > .tiny { margin-bottom: 0.4rem; }
+    .box-list button.box-pick {
+      display: block;
+      width: 100%;
+      text-align: left;
+      border: 0;
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 0.45rem 0.7rem;
+      margin: 0.3rem 0;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .box-list button.box-pick.is-on { background: var(--ink); color: #fff; }
+    .box-list__actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.4rem; }
+    .box-list__actions .btn-ghost { width: auto; margin: 0; padding: 0.55rem 0.9rem; }
+
+    .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .studio-stage {
+      width: min(520px, 100%);
+      position: relative;
+      margin: 0 auto;
+      touch-action: none;
+    }
+    .pixi-stage {
+      position: relative;
+      width: 100%;
+      background: #efeae3;
+      overflow: hidden;
+      touch-action: none;
+    }
+    .pixi-stage img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: fill;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .slot-hint { text-align: center; margin: 0.45rem 0 0; }
+
+    .box-editor__box {
+      position: absolute;
+      z-index: 2;
+      border: 2px dashed var(--blue);
+      background: rgba(4, 70, 212, 0.12);
+      cursor: move;
+      box-sizing: border-box;
+      touch-action: none;
+    }
+    .box-editor__box.is-on { z-index: 5; }
+    .box-editor__box.is-dim {
+      z-index: 2;
+      border-color: rgba(4, 70, 212, 0.45);
+      background: rgba(4, 70, 212, 0.06);
+    }
+    .align-guide {
+      position: absolute;
+      background: #e11d74;
+      pointer-events: none;
+      z-index: 6;
+    }
+    .align-guide--y { height: 1px; }
+    .align-guide--x { width: 1px; }
+    .align-guide span {
+      position: absolute;
+      left: 50%;
+      top: -18px;
+      transform: translateX(-50%);
+      background: #e11d74;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .box-editor__label {
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: 0.02em;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .box-editor__handle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--blue);
+      border: 2px solid #fff;
+      border-radius: 2px;
+      box-sizing: border-box;
+      touch-action: none;
+    }
+    .box-editor__handle--nw { left: -6px; top: -6px; cursor: nwse-resize; }
+    .box-editor__handle--n { left: calc(50% - 6px); top: -6px; cursor: ns-resize; }
+    .box-editor__handle--ne { right: -6px; top: -6px; cursor: nesw-resize; }
+    .box-editor__handle--e { right: -6px; top: calc(50% - 6px); cursor: ew-resize; }
+    .box-editor__handle--se { right: -6px; bottom: -6px; cursor: nwse-resize; }
+    .box-editor__handle--s { left: calc(50% - 6px); bottom: -6px; cursor: ns-resize; }
+    .box-editor__handle--sw { left: -6px; bottom: -6px; cursor: nesw-resize; }
+    .box-editor__handle--w { left: -6px; top: calc(50% - 6px); cursor: ew-resize; }
+
+    .measure-line { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+    .measure-line__svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .measure-line__stroke {
+      stroke: #e85d04;
+      stroke-width: 3;
+      stroke-dasharray: 10 7;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+    }
+    .measure-line__rail {
+      position: absolute;
+      height: 18px;
+      margin-top: -9px;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: grab;
+      pointer-events: auto;
+      touch-action: none;
+    }
+    .measure-line__end {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      margin: -8px 0 0 -8px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #e85d04;
+      box-sizing: border-box;
+      cursor: grab;
+      pointer-events: auto;
+      z-index: 4;
+      touch-action: none;
+    }
+    .measure-line__label {
+      position: absolute;
+      transform: translate(-50%, calc(-100% - 10px));
+      background: #e85d04;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 980px) {
+      .admin-studio { grid-template-columns: 1fr; display: block; }
+      .site-header__inner { flex-wrap: wrap; border-radius: 24px; }
+      .site-nav { width: 100%; order: 3; justify-content: center; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="#top">BlueCotton</a>
+      <nav class="site-nav">
+        <a href="#top">T-Shirts</a>
+        <a href="#top">Hoodies</a>
+        <a href="#top">Polos</a>
+        <a href="#top">Hats</a>
+        <a href="#top">All products</a>
+      </nav>
+      <div class="header-end">
+        <a class="tiny-link" href="#top">Admin</a>
+        <a class="tiny-link" href="#top">Print boxes</a>
+        <span class="tiny-link">Staff · admin</span>
+        <button type="button" class="tiny-link">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-page" id="top">
+    <p class="tiny">
+      <a href="#top">← All garments</a>
+      ·
+      <a href="#top">Jobs</a>
+    </p>
+    <div class="admin-head">
+      <div>
+        <p class="eyebrow">Print box</p>
+        <h1>Anthem heavyweight t-shirt</h1>
+        <p class="muted">Stretch the width line, then add as many print boxes as the customer needs for logos.</p>
+      </div>
+    </div>
+
+    <div class="admin-studio">
+      <aside class="admin-card">
+        <p class="muted">Stretch the orange line for scale, then add as many blue print boxes as you need. Customers can put a logo in each box.</p>
+        <div class="box-editor-tabs" id="tabs" role="tablist"></div>
+
+        <div class="scale-ask">
+          <p>The orange line is “from here to here.” Enter that real width (or fill it from Ralawise to-fit chest). Every print box uses this same scale.</p>
+          <div class="field-grid field-grid--scale">
+            <label class="field">To-fit chest (in)
+              <input id="chest" type="number" step="0.5" min="10" />
+            </label>
+            <label class="field">This line is (in)
+              <input id="line-in" type="number" step="0.1" min="1" />
+            </label>
+            <label class="field">This line is (mm)
+              <input id="line-mm" type="number" step="1" min="20" />
+            </label>
+          </div>
+          <p class="tiny" id="scale-readout"></p>
+        </div>
+
+        <div class="box-list">
+          <p class="tiny">Print boxes on this side</p>
+          <div id="box-picks"></div>
+          <div class="box-list__actions">
+            <button type="button" class="btn-ghost" id="add-box">Add print box</button>
+            <button type="button" class="btn-ghost" id="remove-box">Remove box</button>
+          </div>
+        </div>
+
+        <label class="field">Box name
+          <input id="box-name" type="text" />
+        </label>
+
+        <div class="field-grid">
+          <label class="field">Print width (mm)
+            <input id="print-w-mm" type="number" step="0.1" min="1" />
+          </label>
+          <label class="field">Print height (mm)
+            <input id="print-h-mm" type="number" step="0.1" min="1" />
+          </label>
+          <label class="field">Print width (in)
+            <input id="print-w-in" type="number" step="0.1" min="0.1" />
+          </label>
+          <label class="field">Print height (in)
+            <input id="print-h-in" type="number" step="0.1" min="0.1" />
+          </label>
+          <label class="field">pixelsPerInch
+            <input id="ppi" type="number" readonly />
+          </label>
+          <label class="field">Box x (px)
+            <input id="box-x" type="number" />
+          </label>
+          <label class="field">Box y (px)
+            <input id="box-y" type="number" />
+          </label>
+          <label class="field">Box w (px)
+            <input id="box-w" type="number" />
+          </label>
+          <label class="field">Box h (px)
+            <input id="box-h" type="number" />
+          </label>
+        </div>
+
+        <p class="tiny" id="box-summary"></p>
+        <p class="tiny" id="status" hidden></p>
+        <div class="actions">
+          <button type="button" class="btn-primary" id="save">Save print boxes</button>
+          <button type="button" class="btn-ghost" id="reset">Reset automatic guess</button>
+        </div>
+      </aside>
+
+      <div class="admin-studio__canvas">
+        <div class="studio-stage">
+          <div class="pixi-stage" id="stage">
+            <img id="photo" alt="" draggable="false" src="AM015_Black_FT.jpg" />
+            <div id="overlay"></div>
+          </div>
+        </div>
+        <p class="tiny slot-hint" id="canvas-hint"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const HANDLES = ["nw", "n", "ne", "e", "se", "s", "sw", "w"];
+    const SNAP = 12;
+
+    function clone(value) {
+      return JSON.parse(JSON.stringify(value));
+    }
+
+    function clamp(n, a, b) {
+      return Math.max(a, Math.min(b, n));
+    }
+
+    function cropPixels(side) {
+      const w = side.imageWidth || 1;
+      const h = side.imageHeight || 1;
+      const crop = side.crop && side.crop[2] > side.crop[0] ? side.crop : [0, 0, w, h];
+      return {
+        x: Math.max(0, crop[0]),
+        y: Math.max(0, crop[1]),
+        w: Math.max(1, crop[2] - crop[0]),
+        h: Math.max(1, crop[3] - crop[1]),
+      };
+    }
+
+    function defaultMeasureLine(side) {
+      const crop = cropPixels(side);
+      const y = crop.y + crop.h * 0.38;
+      return { x1: crop.x, y1: y, x2: crop.x + crop.w, y2: y };
+    }
+
+    function measureLineLengthPx(line) {
+      if (!line) return 0;
+      return Math.hypot(line.x2 - line.x1, line.y2 - line.y1);
+    }
+
+    function scaleWidthPx(side) {
+      const drawn = measureLineLengthPx(side.measureLine);
+      return drawn > 2 ? drawn : cropPixels(side).w;
+    }
+
+    function halfChestMm(chestIn) {
+      return (chestIn / 2) * 25.4;
+    }
+
+    function chestInFromGarmentWidthMm(mm) {
+      return (mm / 25.4) * 2;
+    }
+
+    function printMm(area, side, garmentWidthMm) {
+      const scale = garmentWidthMm / Math.max(scaleWidthPx(side), 1);
+      if (!area) return { w: 0, h: 0 };
+      return { w: area.w * scale, h: area.h * scale };
+    }
+
+    function ppiFromWidth(side, garmentWidthMm) {
+      return scaleWidthPx(side) / Math.max(garmentWidthMm / 25.4, 0.1);
+    }
+
+    function clampArea(area, imageW, imageH) {
+      const min = 16;
+      const w = clamp(area.w, min, imageW);
+      const h = clamp(area.h, min, imageH);
+      return {
+        ...area,
+        x: clamp(area.x, 0, Math.max(0, imageW - w)),
+        y: clamp(area.y, 0, Math.max(0, imageH - h)),
+        w,
+        h,
+      };
+    }
+
+    function clampPoint(x, y, imageW, imageH) {
+      return { x: clamp(x, 0, imageW), y: clamp(y, 0, imageH) };
+    }
+
+    function clampLine(line, imageW, imageH) {
+      const a = clampPoint(line.x1, line.y1, imageW, imageH);
+      const b = clampPoint(line.x2, line.y2, imageW, imageH);
+      if (Math.hypot(b.x - a.x, b.y - a.y) < 8) {
+        return { x1: a.x, y1: a.y, x2: clamp(a.x + 8, 0, imageW), y2: a.y };
+      }
+      return { x1: a.x, y1: a.y, x2: b.x, y2: b.y };
+    }
+
+    function edges(box) {
+      return {
+        left: box.x,
+        right: box.x + box.w,
+        top: box.y,
+        bottom: box.y + box.h,
+        cx: box.x + box.w / 2,
+        cy: box.y + box.h / 2,
+      };
+    }
+
+    function snapToOthers(box, others, imageW, imageH) {
+      const next = { ...box };
+      others.forEach((other) => {
+        const a = edges(next);
+        const b = edges(other);
+        if (Math.abs(next.w - other.w) <= SNAP) next.w = other.w;
+        if (Math.abs(next.h - other.h) <= SNAP) next.h = other.h;
+        if (Math.abs(a.top - b.top) <= SNAP) next.y = b.top;
+        else if (Math.abs(a.cy - b.cy) <= SNAP) next.y = b.cy - next.h / 2;
+        else if (Math.abs(a.bottom - b.bottom) <= SNAP) next.y = b.bottom - next.h;
+        if (Math.abs(a.left - b.left) <= SNAP) next.x = b.left;
+        else if (Math.abs(a.cx - b.cx) <= SNAP) next.x = b.cx - next.w / 2;
+        else if (Math.abs(a.right - b.right) <= SNAP) next.x = b.right - next.w;
+      });
+      return clampArea(next, imageW, imageH);
+    }
+
+    function alignmentGuides(boxes, activeIndex) {
+      const active = boxes[activeIndex];
+      if (!active) return [];
+      const a = edges(active);
+      const guides = [];
+      const close = (p, q) => Math.abs(p - q) <= 1.5;
+      boxes.forEach((other, index) => {
+        if (index === activeIndex) return;
+        const b = edges(other);
+        const left = Math.min(a.left, b.left);
+        const right = Math.max(a.right, b.right);
+        const top = Math.min(a.top, b.top);
+        const bottom = Math.max(a.bottom, b.bottom);
+        if (close(a.top, b.top)) guides.push({ axis: "y", at: b.top, from: left, to: right, label: "Top aligned" });
+        if (close(a.cy, b.cy)) guides.push({ axis: "y", at: b.cy, from: left, to: right, label: "Center aligned" });
+        if (close(a.bottom, b.bottom)) guides.push({ axis: "y", at: b.bottom, from: left, to: right, label: "Bottom aligned" });
+        if (close(a.left, b.left)) guides.push({ axis: "x", at: b.left, from: top, to: bottom });
+        if (close(a.cx, b.cx)) guides.push({ axis: "x", at: b.cx, from: top, to: bottom });
+        if (close(a.right, b.right)) guides.push({ axis: "x", at: b.right, from: top, to: bottom });
+      });
+      return guides;
+    }
+
+    function makeSides() {
+      return [
+        {
+          name: "Front",
+          imageWidth: 1200,
+          imageHeight: 1440,
+          crop: [0, 0, 1200, 1440],
+          areas: [{ x: 301, y: 203, w: 598, h: 690 }],
+        },
+        {
+          name: "Back",
+          imageWidth: 1200,
+          imageHeight: 1440,
+          crop: [0, 0, 1200, 1440],
+          areas: [{ x: 301, y: 203, w: 598, h: 736 }],
+        },
+      ].map((side) => ({ ...side, measureLine: defaultMeasureLine(side) }));
+    }
+
+    const initial = {
+      garmentWidthMm: 508,
+      chestHint: chestInFromGarmentWidthMm(508),
+      sides: makeSides(),
+    };
+
+    const state = {
+      garmentWidthMm: initial.garmentWidthMm,
+      chestHint: initial.chestHint,
+      sides: clone(initial.sides),
+      active: 0,
+      activeBox: 0,
+      busy: false,
+    };
+
+    let drag = null;
+
+    const els = {
+      tabs: document.getElementById("tabs"),
+      picks: document.getElementById("box-picks"),
+      stage: document.getElementById("stage"),
+      overlay: document.getElementById("overlay"),
+      photo: document.getElementById("photo"),
+      chest: document.getElementById("chest"),
+      lineIn: document.getElementById("line-in"),
+      lineMm: document.getElementById("line-mm"),
+      scaleReadout: document.getElementById("scale-readout"),
+      name: document.getElementById("box-name"),
+      printWmm: document.getElementById("print-w-mm"),
+      printHmm: document.getElementById("print-h-mm"),
+      printWin: document.getElementById("print-w-in"),
+      printHin: document.getElementById("print-h-in"),
+      ppi: document.getElementById("ppi"),
+      boxX: document.getElementById("box-x"),
+      boxY: document.getElementById("box-y"),
+      boxW: document.getElementById("box-w"),
+      boxH: document.getElementById("box-h"),
+      summary: document.getElementById("box-summary"),
+      status: document.getElementById("status"),
+      hint: document.getElementById("canvas-hint"),
+      add: document.getElementById("add-box"),
+      remove: document.getElementById("remove-box"),
+      save: document.getElementById("save"),
+      reset: document.getElementById("reset"),
+    };
+
+    function side() {
+      return state.sides[state.active];
+    }
+
+    function areas() {
+      const list = side().areas;
+      return list.length ? list : [{ x: 40, y: 80, w: 200, h: 240, label: "Box 1" }];
+    }
+
+    function boxIndex() {
+      return Math.min(state.activeBox, areas().length - 1);
+    }
+
+    function area() {
+      return areas()[boxIndex()];
+    }
+
+    function mmPerPx() {
+      return state.garmentWidthMm / Math.max(scaleWidthPx(side()), 1);
+    }
+
+    function setStatus(text) {
+      if (!text) {
+        els.status.hidden = true;
+        els.status.textContent = "";
+        return;
+      }
+      els.status.hidden = false;
+      els.status.textContent = text;
+    }
+
+    function setField(input, value) {
+      if (document.activeElement === input) return;
+      if (String(input.value) !== String(value)) input.value = value;
+    }
+
+    function labelFor(item, index) {
+      return item.label || `Box ${index + 1}`;
+    }
+
+    function applyWidth(widthMm) {
+      state.garmentWidthMm = Math.max(widthMm, 1);
+      setStatus("");
+      render();
+    }
+
+    function setAreaAt(index, next) {
+      const list = areas().map((item, i) => (i === index ? next : item));
+      side().areas = list;
+      setStatus("");
+      render();
+    }
+
+    function setPrintMm(axis, value) {
+      const nextPx = value / Math.max(mmPerPx(), 0.001);
+      const current = area();
+      if (axis === "w") setAreaAt(boxIndex(), { ...current, w: nextPx });
+      else setAreaAt(boxIndex(), { ...current, h: nextPx });
+    }
+
+    function addBox() {
+      const current = area();
+      const list = areas();
+      const scale = Math.max(mmPerPx(), 0.001);
+      const sizePx = 100 / scale;
+      const imageW = side().imageWidth || 1200;
+      const next = {
+        x: Math.min((current.x || 80) + Math.max(current.w, sizePx) + 36, Math.max(0, imageW - sizePx)),
+        y: current.y,
+        w: current.w || sizePx,
+        h: current.h || sizePx,
+        label: `Box ${list.length + 1}`,
+      };
+      side().areas = [...list, next];
+      state.activeBox = list.length;
+      setStatus("");
+      render();
+    }
+
+    function removeBox() {
+      const list = areas();
+      if (list.length < 2) return;
+      const index = boxIndex();
+      side().areas = list.filter((_, i) => i !== index);
+      state.activeBox = Math.max(0, index - 1);
+      setStatus("");
+      render();
+    }
+
+    function save() {
+      const count = state.sides.reduce((n, item) => n + item.areas.length, 0);
+      setStatus(`Saved ${count} print boxes. Customers can place a logo in each one.`);
+    }
+
+    function resetGuess() {
+      state.garmentWidthMm = initial.garmentWidthMm;
+      state.chestHint = initial.chestHint;
+      state.sides = clone(initial.sides);
+      state.activeBox = 0;
+      setStatus("Reset to the automatic guess. Add more boxes if the customer needs extra logo spots.");
+      render();
+    }
+
+    function onImageSize(width, height) {
+      const current = side();
+      if (current.imageWidth === width && current.imageHeight === height) return;
+      const sx = width / Math.max(1, current.imageWidth || width);
+      const sy = height / Math.max(1, current.imageHeight || height);
+      const line = current.measureLine;
+      const crop = current.crop && current.crop[2] > current.crop[0]
+        ? [current.crop[0] * sx, current.crop[1] * sy, current.crop[2] * sx, current.crop[3] * sy]
+        : [0, 0, width, height];
+      current.imageWidth = width;
+      current.imageHeight = height;
+      current.crop = crop;
+      current.measureLine = {
+        x1: line.x1 * sx,
+        y1: line.y1 * sy,
+        x2: line.x2 * sx,
+        y2: line.y2 * sy,
+      };
+      current.areas = areas().map((item) => ({
+        ...item,
+        x: item.x * sx,
+        y: item.y * sy,
+        w: item.w * sx,
+        h: item.h * sy,
+      }));
+      render();
+    }
+
+    function renderTabs() {
+      els.tabs.innerHTML = state.sides.map((item, index) => `
+        <button type="button" role="tab" data-side="${index}" class="${index === state.active ? "is-on" : ""}">${item.name}</button>
+      `).join("");
+    }
+
+    function renderPicks() {
+      const list = areas();
+      const sizes = list.map((item) => printMm(item, side(), state.garmentWidthMm));
+      const index = boxIndex();
+      els.picks.innerHTML = list.map((item, i) => {
+        const size = sizes[i];
+        const sizeText = size ? ` · ${size.w.toFixed(0)}×${size.h.toFixed(0)} mm` : "";
+        return `<button type="button" class="box-pick ${i === index ? "is-on" : ""}" data-box-pick="${i}">${labelFor(item, i)}${sizeText}</button>`;
+      }).join("");
+      els.remove.disabled = list.length < 2;
+    }
+
+    function renderReadouts() {
+      const currentSide = side();
+      const current = area();
+      const index = boxIndex();
+      const mm = printMm(current, currentSide, state.garmentWidthMm);
+      const inch = { w: mm.w / 25.4, h: mm.h / 25.4 };
+      const linePx = measureLineLengthPx(currentSide.measureLine);
+      const lineIn = state.garmentWidthMm / 25.4;
+      const ppi = ppiFromWidth(currentSide, state.garmentWidthMm);
+
+      setField(els.chest, Number(state.chestHint.toFixed(1)));
+      setField(els.lineIn, Number(lineIn.toFixed(1)));
+      setField(els.lineMm, Math.round(state.garmentWidthMm));
+      setField(els.name, labelFor(current, index));
+      setField(els.printWmm, Number(mm.w.toFixed(1)));
+      setField(els.printHmm, Number(mm.h.toFixed(1)));
+      setField(els.printWin, Number(inch.w.toFixed(2)));
+      setField(els.printHin, Number(inch.h.toFixed(2)));
+      setField(els.ppi, Number(ppi.toFixed(2)));
+      setField(els.boxX, Math.round(current.x));
+      setField(els.boxY, Math.round(current.y));
+      setField(els.boxW, Math.round(current.w));
+      setField(els.boxH, Math.round(current.h));
+
+      els.scaleReadout.textContent = `Line ${linePx.toFixed(0)} px = ${lineIn.toFixed(1)}″ / ${Math.round(state.garmentWidthMm)} mm · ${mmPerPx().toFixed(2)} mm/px`;
+      els.summary.textContent = `${labelFor(current, index)}: ${mm.w.toFixed(1)} × ${mm.h.toFixed(1)} mm · ${inch.w.toFixed(2)}″ × ${inch.h.toFixed(2)}″`;
+      els.hint.textContent = `Orange line = garment width. Blue boxes = logo spots (${areas().length} on this side).`;
+      els.save.disabled = state.busy;
+      els.reset.disabled = state.busy;
+      els.save.textContent = state.busy ? "Saving…" : "Save print boxes";
+    }
+
+    function renderOverlay() {
+      const currentSide = side();
+      const imageW = Math.max(1, currentSide.imageWidth);
+      const imageH = Math.max(1, currentSide.imageHeight);
+      const list = areas();
+      const boxes = list.map((item) => clampArea(item, imageW, imageH));
+      const index = boxIndex();
+      const guides = alignmentGuides(boxes, index);
+      const sizes = list.map((item) => printMm(item, currentSide, state.garmentWidthMm));
+      const line = clampLine(currentSide.measureLine, imageW, imageH);
+      const lineIn = state.garmentWidthMm / 25.4;
+      const x1 = (line.x1 / imageW) * 100;
+      const y1 = (line.y1 / imageH) * 100;
+      const x2 = (line.x2 / imageW) * 100;
+      const y2 = (line.y2 / imageH) * 100;
+
+      els.stage.style.aspectRatio = `${imageW} / ${imageH}`;
+
+      const guideHtml = guides.map((guide) => {
+        const style = guide.axis === "y"
+          ? `top:${(guide.at / imageH) * 100}%;left:${(guide.from / imageW) * 100}%;width:${((guide.to - guide.from) / imageW) * 100}%`
+          : `left:${(guide.at / imageW) * 100}%;top:${(guide.from / imageH) * 100}%;height:${((guide.to - guide.from) / imageH) * 100}%`;
+        return `<div class="align-guide align-guide--${guide.axis}" style="${style}">${guide.label ? `<span>${guide.label}</span>` : ""}</div>`;
+      }).join("");
+
+      const boxHtml = boxes.map((box, i) => {
+        const size = sizes[i];
+        const on = i === index;
+        const handles = on
+          ? HANDLES.map((handle) => `<i class="box-editor__handle box-editor__handle--${handle}" data-handle="${handle}" data-box="${i}"></i>`).join("")
+          : "";
+        const sizeText = size ? ` · ${size.w.toFixed(0)} × ${size.h.toFixed(0)} mm` : "";
+        return `
+          <div class="box-editor__box ${on ? "is-on" : "is-dim"}" data-box="${i}" data-handle="move" style="left:${(box.x / imageW) * 100}%;top:${(box.y / imageH) * 100}%;width:${(box.w / imageW) * 100}%;height:${(box.h / imageH) * 100}%">
+            <span class="box-editor__label">${labelFor(box, i)}${sizeText}</span>
+            ${handles}
+          </div>`;
+      }).join("");
+
+      els.overlay.innerHTML = `
+        <div class="measure-line">
+          <svg class="measure-line__svg" viewBox="0 0 ${imageW} ${imageH}" preserveAspectRatio="none">
+            <line x1="${line.x1}" y1="${line.y1}" x2="${line.x2}" y2="${line.y2}" class="measure-line__stroke"></line>
+          </svg>
+          <button type="button" class="measure-line__rail" data-measure="move" aria-label="Move width line" style="left:${Math.min(x1, x2)}%;top:${(y1 + y2) / 2}%;width:${Math.max(Math.abs(x2 - x1), 1.2)}%"></button>
+          <span class="measure-line__label" style="left:${(x1 + x2) / 2}%;top:${(y1 + y2) / 2}%">${lineIn.toFixed(1)} in</span>
+          <i class="measure-line__end" data-measure="start" style="left:${x1}%;top:${y1}%"></i>
+          <i class="measure-line__end" data-measure="end" style="left:${x2}%;top:${y2}%"></i>
+        </div>
+        ${guideHtml}
+        ${boxHtml}
+      `;
+    }
+
+    function render() {
+      renderTabs();
+      renderPicks();
+      renderReadouts();
+      renderOverlay();
+    }
+
+    function toImage(clientX, clientY) {
+      const rect = els.stage.getBoundingClientRect();
+      const current = side();
+      return {
+        x: ((clientX - rect.left) / Math.max(1, rect.width)) * current.imageWidth,
+        y: ((clientY - rect.top) / Math.max(1, rect.height)) * current.imageHeight,
+      };
+    }
+
+    function applyHandle(handle, start, mx, my, imageW, imageH) {
+      const min = 16;
+      const right = start.x + start.w;
+      const bottom = start.y + start.h;
+      let x = start.x;
+      let y = start.y;
+      let w = start.w;
+      let h = start.h;
+      if (handle === "move") return clampArea({ ...start, x: mx, y: my, w: start.w, h: start.h }, imageW, imageH);
+      if (handle === "e") w = clamp(mx - start.x, min, imageW - start.x);
+      if (handle === "w") {
+        w = clamp(right - mx, min, right);
+        x = right - w;
+      }
+      if (handle === "s") h = clamp(my - start.y, min, imageH - start.y);
+      if (handle === "n") {
+        h = clamp(bottom - my, min, bottom);
+        y = bottom - h;
+      }
+      if (handle === "se") {
+        w = clamp(mx - start.x, min, imageW - start.x);
+        h = clamp(my - start.y, min, imageH - start.y);
+      }
+      if (handle === "sw") {
+        w = clamp(right - mx, min, right);
+        x = right - w;
+        h = clamp(my - start.y, min, imageH - start.y);
+      }
+      if (handle === "ne") {
+        w = clamp(mx - start.x, min, imageW - start.x);
+        h = clamp(bottom - my, min, bottom);
+        y = bottom - h;
+      }
+      if (handle === "nw") {
+        w = clamp(right - mx, min, right);
+        x = right - w;
+        h = clamp(bottom - my, min, bottom);
+        y = bottom - h;
+      }
+      return clampArea({ ...start, x, y, w, h }, imageW, imageH);
+    }
+
+    function applyMeasure(handle, start, mx, my, imageW, imageH) {
+      if (handle === "start") return clampLine({ ...start, x1: mx, y1: my }, imageW, imageH);
+      if (handle === "end") return clampLine({ ...start, x2: mx, y2: my }, imageW, imageH);
+      const dx = mx - start.x1;
+      const dy = my - start.y1;
+      return clampLine(
+        { x1: start.x1 + dx, y1: start.y1 + dy, x2: start.x2 + dx, y2: start.y2 + dy },
+        imageW,
+        imageH,
+      );
+    }
+
+    els.tabs.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-side]");
+      if (!button) return;
+      state.active = Number(button.dataset.side);
+      state.activeBox = 0;
+      setStatus("");
+      render();
+    });
+
+    els.picks.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-box-pick]");
+      if (!button) return;
+      state.activeBox = Number(button.dataset.boxPick);
+      setStatus("");
+      render();
+    });
+
+    els.chest.addEventListener("input", () => {
+      const next = Number(els.chest.value);
+      state.chestHint = next;
+      applyWidth(halfChestMm(next));
+    });
+    els.lineIn.addEventListener("input", () => applyWidth(Number(els.lineIn.value) * 25.4));
+    els.lineMm.addEventListener("input", () => applyWidth(Number(els.lineMm.value)));
+
+    els.name.addEventListener("input", () => {
+      setAreaAt(boxIndex(), { ...area(), label: els.name.value });
+    });
+
+    els.printWmm.addEventListener("input", () => setPrintMm("w", Number(els.printWmm.value)));
+    els.printHmm.addEventListener("input", () => setPrintMm("h", Number(els.printHmm.value)));
+    els.printWin.addEventListener("input", () => setPrintMm("w", Number(els.printWin.value) * 25.4));
+    els.printHin.addEventListener("input", () => setPrintMm("h", Number(els.printHin.value) * 25.4));
+
+    ["x", "y", "w", "h"].forEach((key) => {
+      const input = document.getElementById(`box-${key}`);
+      input.addEventListener("input", () => {
+        setAreaAt(boxIndex(), { ...area(), [key]: Number(input.value) });
+      });
+    });
+
+    els.add.addEventListener("click", addBox);
+    els.remove.addEventListener("click", removeBox);
+    els.save.addEventListener("click", save);
+    els.reset.addEventListener("click", resetGuess);
+
+    els.overlay.addEventListener("pointerdown", (event) => {
+      const measure = event.target.closest("[data-measure]");
+      const handleEl = event.target.closest("[data-handle]");
+      const current = side();
+      const imageW = current.imageWidth;
+      const imageH = current.imageHeight;
+      const point = toImage(event.clientX, event.clientY);
+
+      if (measure) {
+        event.preventDefault();
+        const line = clampLine(current.measureLine, imageW, imageH);
+        drag = {
+          kind: "measure",
+          handle: measure.dataset.measure,
+          start: line,
+          px: point.x - line.x1,
+          py: point.y - line.y1,
+        };
+        return;
+      }
+
+      if (!handleEl) return;
+      event.preventDefault();
+      const index = Number(handleEl.dataset.box);
+      const boxes = areas().map((item) => clampArea(item, imageW, imageH));
+      const box = boxes[index];
+      if (!box) return;
+      state.activeBox = index;
+      drag = {
+        kind: "box",
+        index,
+        handle: handleEl.dataset.handle,
+        start: box,
+        px: point.x - box.x,
+        py: point.y - box.y,
+      };
+      render();
+    });
+
+    window.addEventListener("pointermove", (event) => {
+      if (!drag) return;
+      const current = side();
+      const imageW = current.imageWidth;
+      const imageH = current.imageHeight;
+      const point = toImage(event.clientX, event.clientY);
+      if (drag.kind === "box") {
+        const raw = drag.handle === "move"
+          ? applyHandle("move", drag.start, point.x - drag.px, point.y - drag.py, imageW, imageH)
+          : applyHandle(drag.handle, drag.start, point.x, point.y, imageW, imageH);
+        const boxes = areas().map((item) => clampArea(item, imageW, imageH));
+        const others = boxes.filter((_, i) => i !== drag.index);
+        const next = others.length ? snapToOthers(raw, others, imageW, imageH) : raw;
+        const list = areas().map((item, i) => (i === drag.index ? { ...item, ...next } : item));
+        current.areas = list;
+      } else {
+        const next = drag.handle === "move"
+          ? applyMeasure("move", drag.start, point.x - drag.px, point.y - drag.py, imageW, imageH)
+          : applyMeasure(drag.handle, drag.start, point.x, point.y, imageW, imageH);
+        current.measureLine = next;
+      }
+      render();
+    });
+
+    window.addEventListener("pointerup", () => {
+      drag = null;
+    });
+    window.addEventListener("pointercancel", () => {
+      drag = null;
+    });
+
+    els.photo.addEventListener("load", () => {
+      const img = els.photo;
+      if (img.naturalWidth && img.naturalHeight) onImageSize(img.naturalWidth, img.naturalHeight);
+    });
+    if (els.photo.complete && els.photo.naturalWidth) {
+      onImageSize(els.photo.naturalWidth, els.photo.naturalHeight);
+    }
+
+    render();
+  </script>
+</body>
+</html>

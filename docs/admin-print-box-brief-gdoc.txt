@@ -1,0 +1,328 @@
+ADMIN PRINT-BOX BRIEF
+Frontend + backend contract
+
+Who this is for: frontend developer and backend developer (same document).
+Scope: admin picks a garment, measures it, draws print boxes, and saves.
+Out of scope: customer designer, cart, checkout.
+
+How the app is split
+The browser calls /api/...  Next.js forwards those calls to Express.
+Admin save and reset need cookie bc-session with role = admin.
+
+
+SHARED PAYLOAD (THE GARMENT TEMPLATE)
+
+This is what backend gives frontend when a garment is opened, and what frontend sends back when saving.
+
+PublicGarment
+• id — catalog product id (number)
+• name — garment name
+• garmentWidthMm — real width of the orange measure line (optional)
+• source — "generated" or "admin"
+• updatedAt — last save time
+• sides — list of GarmentSide
+
+GarmentSide
+• name — "Front", "Back", and so on
+• imageUrl — Ralawise / Pimberly colour photo
+• imageWidth / imageHeight — photo size in pixels
+• crop — [x1, y1, x2, y2] fabric rectangle on the photo
+• measureLine — { x1, y1, x2, y2 } orange “from here to here” line, in photo pixels
+• pixelsPerInch — calculated, admin does not type this
+• areas — list of print boxes
+
+GarmentArea
+• x, y, w, h — box on the photo, in pixels
+• label — "Box 1", "Left chest" (optional)
+
+Scale rule (frontend uses this live; backend stores the numbers frontend sends)
+
+linePx = length of measureLine (or fabric crop width if there is no line)
+mmPerPx = garmentWidthMm / linePx
+box width mm = area.w * mmPerPx
+box height mm = area.h * mmPerPx
+pixelsPerInch = linePx / (garmentWidthMm / 25.4)
+
+Ralawise to-fit chest is the full circumference. The flat photo is about half chest:
+
+garmentWidthMm = (chestIn / 2) * 25.4
+
+Customer designer later maps areas[0] to BOX_0, areas[1] to BOX_1, and so on. Do not rename that pattern.
+
+
+FEATURE 1 — BROWSE GARMENTS
+
+What it is
+Admin opens /admin/garments and sees the same catalog as the shop. Click a style to open the editor.
+
+Frontend sends to backend
+• shop — category slug, for example t-shirts
+• q — search text
+• limit and offset / page
+
+Backend gives frontend
+• total style count
+• items: id, name, brand, shop, colour count, fromPrice
+
+API
+GET /api/products?shop=t-shirts&q=gildan&limit=24&offset=0
+
+Example response
+{
+  "total": 452,
+  "items": [
+    {
+      "id": 300,
+      "name": "AWDis 240 T",
+      "brand": "AWDis",
+      "shop": "t-shirts",
+      "colors": 8,
+      "fromPrice": 22.38
+    }
+  ]
+}
+
+Notes
+The Next admin page can also read the catalog on the server. Same fields.
+After pick, frontend goes to /admin/garments?id=300.
+Backend only reads products. It does not create a print template yet.
+
+
+FEATURE 2 — OPEN GARMENT (LOAD OR FIRST-TIME GUESS)
+
+What it is
+Admin needs the photo plus any saved boxes. If nobody has saved this style yet, backend makes a first automatic guess.
+
+Frontend sends to backend
+• product id in the URL
+
+Backend gives frontend
+• full PublicGarment: sides, measure line, boxes, garmentWidthMm
+
+API
+GET /api/v2/garment/:id
+
+Auth: none. The customer designer uses this same call.
+404 if the product is not in the catalog.
+
+What backend does on first open
+1. If garment_templates already has this product_id and it is admin-saved (or current version), return that row.
+2. Otherwise load the product, fetch the first colour photo, detect fabric if possible, place one guessed box per face (Front / Back / …), set garmentWidthMm from the silhouette default (tee is about 20 in = 508 mm), draw a default orange line across the fabric, set source to "generated", save, and return.
+
+What frontend does after the response
+• Draw the photo, the orange line, and the blue boxes.
+• If garmentWidthMm is missing, use the silhouette default the page already has.
+• Recalculate pixelsPerInch locally from the scale rule. Do not ask the admin to type PPI.
+
+
+FEATURE 3 — COLOUR PHOTO (SAFE IMAGE LOAD)
+
+What it is
+Boxes must sit on the same colour photo the customer will see.
+
+Frontend sends to backend
+• url = HTTPS Pimberly colour image (cdn.pimber.ly only)
+
+Backend gives frontend
+• raw image bytes (jpeg / webp / png) plus cache headers
+
+API
+GET /api/garment-image?url=<encoded Pimberly URL>
+
+Frontend
+If side.imageUrl is a Pimberly link, load it through /api/garment-image?url=... not from the CDN directly.
+When the image loads, if the real pixel size is different from imageWidth / imageHeight, scale crop, measureLine, and every area by sx / sy. Keep that in local state until Save.
+
+Backend
+Reject non-https or non-Pimberly hosts with 400.
+If Pimberly fails, return 502.
+
+
+FEATURE 4 — MEASURE CHEST / GARMENT WIDTH
+
+What it is
+Admin stretches the orange line (“from here to here is 16 in”) and types that real width. Every print box on every side uses this one scale.
+
+This step stays on the frontend until Save. Backend does not receive live drag events.
+
+Frontend keeps locally
+• measureLine { x1, y1, x2, y2 } in photo pixels
+• garmentWidthMm
+
+Frontend may also show
+• to-fit chest (inches) — converted to garmentWidthMm with the half-chest rule
+• line length in inches and mm
+• mmPerPx
+• read-only pixelsPerInch
+
+Frontend sends to backend (Save only)
+• sides[].measureLine
+• garmentWidthMm at the top level
+
+Backend gives frontend (Load)
+• last saved measureLine and garmentWidthMm
+
+Example
+Line is 627 px. Admin says the line is 16 in (406 mm).
+mmPerPx = 406 / 627
+A 200 px wide box is 200 × 406 / 627 mm.
+
+Do not store to-fit chest as its own database column.
+Store the flat width (garmentWidthMm) and the line pixels.
+
+
+FEATURE 5 — DRAW AND SIZE PRINT BOXES
+
+What it is
+Admin adds as many boxes as needed. All boxes use the same orange-line scale.
+Alignment guides (snap to another box’s top / center / left) are frontend only.
+
+Frontend keeps locally
+• areas[] in photo pixels
+• which box is selected
+• optional label
+
+Frontend shows (calculated, not stored as extra fields)
+• print width and height in mm and inches
+• formula: area pixels × garmentWidthMm / linePx
+
+Frontend sends to backend (Save)
+• sides[].areas (pixels + label)
+• sides[].pixelsPerInch
+
+Backend gives frontend (Load)
+• saved areas so boxes are visible before the customer uploads a logo
+
+Typing mm or inches in the side panel does not call the API.
+Frontend converts: pixels = mm / mmPerPx, then updates the box.
+
+Add box (frontend): copy the current box size, shift it right, label it Box N.
+Remove box (frontend): only if there is more than one box.
+Backend stores the list it is given. It does not add extra boxes on save.
+
+
+FEATURE 6 — SAVE PRINT BOXES
+
+What it is
+Admin clicks Save print boxes. This is the write to the database.
+
+Frontend sends to backend
+• full garment: id, name, all sides, garmentWidthMm
+
+Backend gives frontend
+• the same PublicGarment after save
+• source is now "admin"
+• new updatedAt
+
+API
+PUT /api/v2/garment/:id
+Cookie: bc-session (must be admin)
+Content-Type: application/json
+
+Example body
+{
+  "id": 300,
+  "name": "AWDis 240 T",
+  "garmentWidthMm": 406,
+  "sides": [
+    {
+      "name": "Front",
+      "imageUrl": "https://cdn.pimber.ly/…/FT.jpg",
+      "imageWidth": 1000,
+      "imageHeight": 1200,
+      "crop": [40, 30, 960, 1150],
+      "measureLine": { "x1": 80, "y1": 420, "x2": 707, "y2": 420 },
+      "pixelsPerInch": 39.2,
+      "areas": [
+        { "x": 220, "y": 180, "w": 200, "h": 240, "label": "Box 1" },
+        { "x": 480, "y": 180, "w": 120, "h": 120, "label": "Left chest" }
+      ]
+    }
+  ]
+}
+
+401 if not admin. 404 if the product is missing.
+
+What backend does
+1. Merge the body onto the existing row. Frontend sides and garmentWidthMm win.
+2. Set source = "admin".
+3. Upsert garment_templates (sides JSON + garment_width_mm).
+4. Rebuild garment_print_boxes (one row per box: pixels + print inches). That table is for ops / job tickets, not for the editor screen.
+
+Frontend does not upload image files. Boxes are numbers on a photo URL we already have.
+
+
+FEATURE 7 — RESET AUTOMATIC GUESS
+
+What it is
+Admin clicks Reset automatic guess to throw away their edit and rebuild from catalog defaults.
+
+Frontend sends to backend
+{ "regenerate": true }
+
+Backend gives frontend
+• a fresh PublicGarment
+• source is "generated"
+• one guessed box per side
+• a new measure line
+
+API
+POST /api/v2/garment/:id
+Cookie: bc-session (must be admin)
+
+400 if regenerate is missing. This overwrites the saved template.
+
+Frontend then replaces local sides and garmentWidthMm, and selects Box 1.
+
+
+FEATURE 8 — LIST SAVED TEMPLATES (OPTIONAL)
+
+API
+GET /api/v2/garments
+Response: { "garments": [ PublicGarment, … ] }
+
+Admin browse today uses the product catalog, not this list.
+Keep the endpoint for a later “already templated” view.
+
+
+HANDOFF TO CUSTOMER DESIGNER (DO NOT CHANGE)
+
+After save, the customer app calls the same GET /api/v2/garment/:id.
+
+What customer uses
+• sides[].areas[i] — empty box on screen; slot code BOX_i
+• sides[].imageUrl — colour photo (through the image proxy)
+• garmentWidthMm + measureLine — real print size of the plate
+• box labels — admin only; customer UI stays clean (no “100 × 100 mm”)
+
+If areas already exist, the customer designer must not invent its own boxes.
+
+
+AUTH AND ERRORS (ADMIN WRITES)
+
+200 — success. Body is PublicGarment, or { garments }, or { items }
+400 — bad action or bad image URL
+401 — need admin cookie bc-session
+404 — unknown product / garment
+502 — Pimberly image fetch failed
+
+
+WHO OWNS WHAT
+
+Frontend (no API until Save)
+• drag the orange line
+• drag / resize boxes
+• snap / alignment guides
+• mm and inch inputs
+• show PPI
+
+Backend
+• first-time fabric detect, default box, default garmentWidthMm (open / reset)
+• store the template and flattened box rows (garment_templates, garment_print_boxes)
+• proxy the colour photo
+• catalog search for the picker (GET /api/products)
+
+Shared
+• the scale formula above
+• frontend uses it for the live UI
+• backend stores the numbers frontend sends

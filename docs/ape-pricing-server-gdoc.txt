@@ -1,0 +1,27 @@
+WHERE IS THE PRICE WORKED OUT, AND HOW DO YOU STOP SOMEONE CHANGING IT IN THEIR BROWSER?
+
+The price is worked out on the server. The browser only shows the number the server sends back. Checkout works the price out a second time, and that second figure is what Stripe charges.
+
+
+WHERE IT IS WORKED OUT
+
+One pricing engine on the server prices every build. The quick quote, the builder, the basket, checkout and the VAT invoice all ask that same engine. A build cannot show two prices.
+
+The engine runs in pence. It takes the garment, the quantity, the size split, the decoration method, the positions, the colour count or the print area, and the delivery speed. It returns the price per piece, the total, and the breakdown: garment, decoration, setup, size extras, delivery speed, delivery and VAT.
+
+The numbers come from the price tables in admin. A change to a table is used on the next calculation. The example prices in the prototype are not used on the live site.
+
+The page the customer is looking at does not contain the pricing rules. It sends the choices, and the server answers with a price.
+
+
+HOW A CHANGED PRICE IS STOPPED
+
+The amount on screen is a display. It is not sent to Stripe as the amount to charge.
+
+At checkout the server throws away any price that arrived from the browser and calculates the order again from the garment, the sizes, the artwork and the current price tables. Stripe is opened with that server total, in pence. If someone edits the number in their browser’s tools, the edited number is ignored. The card is charged the server total, or the payment is refused if the build is no longer valid.
+
+A basket built before a price-table change is repriced at this same moment. The customer sees the old price and the new price before they pay.
+
+After payment, the paid total is stored on the order and is the figure on the VAT invoice. The invoice lines are built from that total, so they add up to it. A later change, such as extra ink colours found on the proof, is a separate payment link or a refund from admin. It does not reuse the number the browser showed.
+
+This is tested on staging by editing the price in the browser and completing checkout. The amount charged is the server price.

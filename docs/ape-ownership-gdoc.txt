@@ -1,0 +1,44 @@
+WILL ALL CODE SIT IN A REPOSITORY OWNED BY APE, WITH EVERY ACCOUNT IN APE’S NAME?
+
+Yes. The repository and every account the site needs are in APE’s name. Big Ladder and the developers are invited in to do the work. They are not the owners.
+
+If the working relationship ends, APE removes those logins. The code, the orders, the artwork and the accounts stay with APE.
+
+
+THE CODE
+
+The site lives in a Git repository under an organisation APE owns (GitHub, or the same kind of host if APE already has one). That repository holds the website, the server, the pricing engine and the admin.
+
+APE is the owner of the organisation. Big Ladder and the developers have access to commit code and to open the staging site. APE can see every change and can take that access away.
+
+There is no private copy that only Big Ladder can run. Staging and the live site are both deployed from this repository.
+
+
+THE ACCOUNTS
+
+Each account is opened in APE’s name, and APE pays the bill. We are added as users so we can set the site up.
+
+Domain
+The registrar account for the domain. Renewal stays with APE.
+
+Amazon Web Services
+The London server, the database and the private artwork store. About £80 of the monthly cost. Backups sit in this same account.
+
+Stripe
+Card payments, Apple Pay, Google Pay, refunds. The Stripe account is APE’s, and card fees are taken from APE’s payouts.
+
+Resend
+The order and proof emails. About £15 a month. The sending domain is APE’s domain.
+
+Cloudflare
+The free plan in front of the site: HTTPS and the spam check on forms.
+
+Google
+Analytics, Tag Manager, Ads and Search Console, in APE’s existing Google account where APE already has one. Conversion tracking is added there, not in an agency account.
+
+
+HOW HANDOVER WORKS
+
+We do the build inside these accounts from the start, rather than building in ours and transferring later. At launch APE already has the logins, the repository and the bills.
+
+APE also gets a short written guide for adding a garment and editing a price, so day-to-day changes do not need a developer.

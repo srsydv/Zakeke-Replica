@@ -1,0 +1,51 @@
+DOES ANYTHING DEPEND ON A PAID OUTSIDE SERVICE?
+
+The site itself has no paid app or plugin. There is no shop platform and no add-on that can be switched off and take the builder, the prices or the admin with it. The code is in a repository APE owns, and it keeps running on the server we set up.
+
+Three paid services sit around that code. Each one does one job. If one of them stops, the other parts of the site stay up, and we can move that one job to a replacement because the orders, prices and artwork files are ours.
+
+
+STRIPE — CARD PAYMENTS
+
+What it does
+Takes the card payment, Apple Pay and Google Pay, including 3D Secure. Card numbers never sit on APE’s server. The Stripe account is in APE’s name.
+
+If Stripe stops
+The catalogue, the quote, the builder, accounts and admin all keep working. Checkout cannot take a new card payment until we connect another payment provider. Orders already paid, invoices and artwork stay in APE’s database. Saved cards live at Stripe, so a new provider means customers enter their card again. Connecting a replacement is a few days of work, not a rebuild of the site.
+
+
+AMAZON WEB SERVICES — HOSTING, DATABASE AND FILES
+
+What it does
+Runs the website and the API in London, holds the PostgreSQL database, and stores artwork in a private file bucket. This is the £70 hosting line plus the £10 storage line.
+
+If AWS has a short outage
+The site is unreachable until that outage ends. Orders already placed are still in the database when it comes back. We watch uptime and get an alert.
+
+If we had to leave AWS
+The code does not belong to AWS. Daily database backups are kept for 30 days, and artwork is backed up with them. We can restore that backup onto another host. That is a move, measured in days, not a new build. The realistic risk is an outage of hours, not Amazon closing the service.
+
+
+RESEND — EMAIL
+
+What it does
+Sends the 17 order and proof emails from APE’s domain. About £15 a month. The email templates and the order records are ours, not Resend’s.
+
+If Resend stops
+Customers can still build, pay and see the order in their account. Proof approval on the account page still works. The email that normally carries the proof link would not go out until we point sending at another email service (the same kind of account, with the same domain records). Switching is a small change. Past orders are not stored only in Resend; the order, the proof and the approval record are in APE’s database.
+
+
+WHAT DOES NOT DEPEND ON A PAID SERVICE
+
+The pages, the builder, the pricing engine and the admin are our code, using freely available tools (React, Next.js, Node.js, PostgreSQL). If one of those tools is no longer updated, the version already on the server keeps running, and we maintain it.
+
+Cloudflare, on its free plan, sits in front of the site for HTTPS and the spam check on forms. If it stops, we point the domain straight at the server and issue the certificate there. The shop does not depend on a paid Cloudflare plan.
+
+Google Analytics and Google Ads tracking are free. If they stop, the shop still sells. We would lose the conversion reports until tracking is pointed somewhere else.
+
+The Ralawise product feed is a supplier file, not a paid plugin. If the feed stops, garments already on the site stay. Staff update prices and products in admin until the feed is back. New styles are added by the same admin steps.
+
+
+SHORT VERSION
+
+Nothing inside the site is rented. Payments depend on Stripe, the server and the files depend on Amazon, and email depends on Resend. In each case APE keeps the code, the orders and the artwork, and that one job can be moved to a replacement without rebuilding the shop.

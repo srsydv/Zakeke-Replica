@@ -19,6 +19,8 @@ export default async function AdminOrdersPage() {
         <p className="tiny">
           <Link href="/admin/garments">Print boxes</Link>
           {" · "}
+          <Link href="/admin/logo-tools">Logo tools</Link>
+          {" · "}
           Orders appear here after a customer logs in and checks out.
         </p>
       </div>
